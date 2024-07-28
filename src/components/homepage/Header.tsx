@@ -1,11 +1,4 @@
 import Typewriter, { TypewriterClass } from 'typewriter-effect';
-import '../styles/home.css';
-
-function Home() {
-  return (
-    <Header />
-  )
-}
 
 function Header() {
   let nameTypewriter: TypewriterClass | null = null;
@@ -14,7 +7,7 @@ function Header() {
 
   const setCursorDisplayByContainerId = (containerId: string, display: string): void => {
     const cursor = document.querySelector<HTMLElement>(`#${containerId} .Typewriter__cursor`);
-    if(cursor)
+    if (cursor)
       cursor.style.display = display;
   }
 
@@ -25,12 +18,12 @@ function Header() {
           onInit={(_nameTypewriter) => {
             _nameTypewriter
               .typeString('I am Francesco')
-              .callFunction(() => { 
+              .callFunction(() => {
                 professionTypewriter?.start();
                 setCursorDisplayByContainerId('name-typewriter', 'none');
               })
               .stop()
-              
+
             nameTypewriter = _nameTypewriter;
           }}
         />
@@ -38,7 +31,7 @@ function Header() {
       <h2 id='profession-typewriter'>
         <Typewriter
           onInit={(_professionTypewriter) => {
-            setCursorDisplayByContainerId('profession-typewriter', 'none'); 
+            setCursorDisplayByContainerId('profession-typewriter', 'none');
 
             _professionTypewriter
               .callFunction(() => {
@@ -47,20 +40,20 @@ function Header() {
               .changeDelay(50)
               .pauseFor(500)
               .typeString('Passionate Software Engineer')
-              .callFunction(() => { 
+              .callFunction(() => {
                 greetingsTypewriter?.start();
-                setCursorDisplayByContainerId('profession-typewriter', 'none'); 
+                setCursorDisplayByContainerId('profession-typewriter', 'none');
               })
               .stop()
-              
+
             professionTypewriter = _professionTypewriter;
           }}
         />
       </h2>
       <h3 id='greetings-typewriter'>
-      <Typewriter
+        <Typewriter
           onInit={(_greetingsTypewriter) => {
-            setCursorDisplayByContainerId('greetings-typewriter', 'none'); 
+            setCursorDisplayByContainerId('greetings-typewriter', 'none');
 
             _greetingsTypewriter
               .callFunction(() => {
@@ -70,7 +63,7 @@ function Header() {
               .pauseFor(300)
               .typeString('Nice to meet you!')
               .stop()
-              
+
             greetingsTypewriter = _greetingsTypewriter;
 
             nameTypewriter?.start()
@@ -81,4 +74,4 @@ function Header() {
   )
 }
 
-export default Home;
+export default Header;
