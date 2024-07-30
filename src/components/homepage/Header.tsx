@@ -17,7 +17,7 @@ function Header() {
         <Typewriter
           onInit={(_nameTypewriter) => {
             _nameTypewriter
-              .typeString('I am Francesco')
+              .typeString('Hi, I am Francesco')
               .callFunction(() => {
                 professionTypewriter?.start();
                 setCursorDisplayByContainerId('name-typewriter', 'none');
