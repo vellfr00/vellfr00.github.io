@@ -4,6 +4,7 @@ function Header() {
   let nameTypewriter: TypewriterClass | null = null;
   let professionTypewriter: TypewriterClass | null = null;
   let greetingsTypewriter: TypewriterClass | null = null;
+  let discoverMoreBtnTypewriter: TypewriterClass | null = null;
 
   const setCursorDisplayByContainerId = (containerId: string, display: string): void => {
     const cursor = document.querySelector<HTMLElement>(`#${containerId} .Typewriter__cursor`);
@@ -22,7 +23,7 @@ function Header() {
                 professionTypewriter?.start();
                 setCursorDisplayByContainerId('name-typewriter', 'none');
               })
-              .stop()
+              .stop();
 
             nameTypewriter = _nameTypewriter;
           }}
@@ -44,7 +45,7 @@ function Header() {
                 greetingsTypewriter?.start();
                 setCursorDisplayByContainerId('profession-typewriter', 'none');
               })
-              .stop()
+              .stop();
 
             professionTypewriter = _professionTypewriter;
           }}
@@ -62,14 +63,36 @@ function Header() {
               .changeDelay(50)
               .pauseFor(300)
               .typeString('Nice to meet you!')
-              .stop()
+              .callFunction(() => {
+                discoverMoreBtnTypewriter?.start();
+                setCursorDisplayByContainerId('greetings-typewriter', 'none');
+              })
+              .stop();
 
             greetingsTypewriter = _greetingsTypewriter;
-
-            nameTypewriter?.start()
           }}
         />
       </h3>
+      <span id="discover-more-btn-typewriter">
+      <Typewriter
+          onInit={(_discoverMoreBtnTypewriter) => {
+            setCursorDisplayByContainerId('discover-more-btn-typewriter', 'none');
+
+            _discoverMoreBtnTypewriter
+              .callFunction(() => {
+                setCursorDisplayByContainerId('discover-more-btn-typewriter', 'inline');
+              })
+              .changeDelay(50)
+              .pauseFor(300)
+              .typeString('> Click to discover more about me!')
+              .stop();
+
+            discoverMoreBtnTypewriter = _discoverMoreBtnTypewriter;
+
+            nameTypewriter?.start();
+          }}
+        />
+      </span>
     </div>
   )
 }
