@@ -1,4 +1,5 @@
 import Typewriter, { TypewriterClass } from 'typewriter-effect';
+import { useTranslation } from 'react-i18next';
 
 interface HeaderProps {
   onAnimationFinished: () => void;
@@ -16,6 +17,8 @@ function Header({ onAnimationFinished }: HeaderProps) {
   let greetingsTypewriter: TypewriterClass | null = null;
   let discoverMoreTypewriter: TypewriterClass | null = null;
 
+  const { t } = useTranslation('Homepage');
+
   const setCursorDisplayByContainerId = (containerId: string, display: string): void => {
     const cursor = document.querySelector<HTMLElement>(`#${containerId} .Typewriter__cursor`);
     if (cursor)
@@ -28,7 +31,7 @@ function Header({ onAnimationFinished }: HeaderProps) {
         <Typewriter
           onInit={(_nameTypewriter) => {
             _nameTypewriter
-              .typeString('Hi, I am Francesco')
+              .typeString(t('Header.NAME'))
               .callFunction(() => {
                 professionTypewriter?.start();
                 setCursorDisplayByContainerId(NAME_TYPEWRITER_H1_ID, 'none');
@@ -50,7 +53,7 @@ function Header({ onAnimationFinished }: HeaderProps) {
               })
               .changeDelay(50)
               .pauseFor(500)
-              .typeString('Passionate Software Engineer')
+              .typeString(t('Header.PROFESSION'))
               .callFunction(() => {
                 greetingsTypewriter?.start();
                 setCursorDisplayByContainerId(PROFESSION_TYPEWRITER_H2_ID, 'none');
@@ -72,7 +75,7 @@ function Header({ onAnimationFinished }: HeaderProps) {
               })
               .changeDelay(50)
               .pauseFor(300)
-              .typeString('Nice to meet you!')
+              .typeString(t('Header.GREETINGS'))
               .callFunction(() => {
                 discoverMoreTypewriter?.start();
                 setCursorDisplayByContainerId(GREETINGS_TYPEWRITER_H3_ID, 'none');
@@ -94,7 +97,7 @@ function Header({ onAnimationFinished }: HeaderProps) {
               })
               .changeDelay(50)
               .pauseFor(300)
-              .typeString('Scroll down to discover more about me!')
+              .typeString(t('Header.DISCOVER_MORE'))
               .callFunction(() => setCursorDisplayByContainerId(DISCOVER_MORE_TYPEWRITER_SPAN_ID, 'none'))
               .stop()
               .callFunction(() => onAnimationFinished());
