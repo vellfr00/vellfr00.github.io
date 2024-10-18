@@ -74,7 +74,7 @@ function Header() {
         />
       </h3>
       <span id="discover-more-btn-typewriter">
-      <Typewriter
+        <Typewriter
           onInit={(_discoverMoreBtnTypewriter) => {
             setCursorDisplayByContainerId('discover-more-btn-typewriter', 'none');
 

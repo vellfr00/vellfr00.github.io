@@ -1,9 +1,16 @@
 import '../styles/home.css';
-import Header from '../components/homepage/Header';
+import Header from '../components/homepage/sections/Header';
+import MegaScroll from "react-mega-scroll";
+import { useState } from 'react';
+import ScrollableSection from '../components/homepage/ScrollableSection';
 
 function Homepage() {
+  const [activeSectionIndex, setActiveSectionIndex] = useState(0);
+
   return (
-    <Header />
+    <MegaScroll onChange={setActiveSectionIndex}>
+      <ScrollableSection><Header /></ScrollableSection>
+    </MegaScroll>
   )
 }
 

@@ -5,6 +5,11 @@ body {
   background-color: var(--background-color);
 }
 
+._homepage-scrollable-section {
+  display: flex;
+  flex-direction: column;
+}
+
 .homepage-header {
   display: flex;
   flex-direction: column;
@@ -17,7 +22,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding: 10% 5% 0% 5%;
+  padding: 10% 5% 2% 5%;
   height: 75vh;
 
   h1 {
