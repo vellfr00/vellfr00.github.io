@@ -84,7 +84,10 @@ function Header() {
               })
               .changeDelay(50)
               .pauseFor(300)
-              .typeString('> Click to discover more about me!')
+              .typeString('> Click here to discover more about me!')
+              .callFunction(() => {
+                setCursorDisplayByContainerId('discover-more-btn-typewriter', 'none');
+              })
               .stop();
 
             discoverMoreBtnTypewriter = _discoverMoreBtnTypewriter;
