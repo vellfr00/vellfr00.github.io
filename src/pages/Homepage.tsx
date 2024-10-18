@@ -5,11 +5,16 @@ import { useState } from 'react';
 import ScrollableSection from '../components/homepage/ScrollableSection';
 
 function Homepage() {
+  const [isHeaderAnimationFinished, setIsHeaderAnimationFinished] = useState(false);
   const [activeSectionIndex, setActiveSectionIndex] = useState(0);
 
   return (
-    <MegaScroll onChange={setActiveSectionIndex}>
-      <ScrollableSection><Header /></ScrollableSection>
+    <MegaScroll onChange={ setActiveSectionIndex }>
+      <ScrollableSection>
+        <Header 
+          onAnimationFinished = { () => setIsHeaderAnimationFinished(true) }
+        />
+      </ScrollableSection>
     </MegaScroll>
   )
 }

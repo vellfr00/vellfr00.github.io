@@ -1,6 +1,10 @@
 import Typewriter, { TypewriterClass } from 'typewriter-effect';
 
-function Header() {
+interface HeaderProps {
+  onAnimationFinished: () => void;
+}
+
+function Header({ onAnimationFinished }: HeaderProps) {
   let nameTypewriter: TypewriterClass | null = null;
   let professionTypewriter: TypewriterClass | null = null;
   let greetingsTypewriter: TypewriterClass | null = null;
@@ -73,22 +77,21 @@ function Header() {
           }}
         />
       </h3>
-      <span id="discover-more-btn-typewriter">
+      <span id="discover-more-typewriter">
         <Typewriter
           onInit={(_discoverMoreBtnTypewriter) => {
-            setCursorDisplayByContainerId('discover-more-btn-typewriter', 'none');
+            setCursorDisplayByContainerId('discover-more-typewriter', 'none');
 
             _discoverMoreBtnTypewriter
               .callFunction(() => {
-                setCursorDisplayByContainerId('discover-more-btn-typewriter', 'inline');
+                setCursorDisplayByContainerId('discover-more-typewriter', 'inline');
               })
               .changeDelay(50)
               .pauseFor(300)
-              .typeString('> Click here to discover more about me!')
-              .callFunction(() => {
-                setCursorDisplayByContainerId('discover-more-btn-typewriter', 'none');
-              })
-              .stop();
+              .typeString('Scroll down to discover more about me!')
+              .callFunction(() => setCursorDisplayByContainerId('discover-more-typewriter', 'none'))
+              .stop()
+              .callFunction(() => onAnimationFinished());
 
             discoverMoreBtnTypewriter = _discoverMoreBtnTypewriter;
 

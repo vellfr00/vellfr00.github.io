@@ -37,7 +37,7 @@ body {
     color: var(--text-color);
   }
 
-  #discover-more-btn-typewriter {
+  #discover-more-typewriter {
     background-color: var(--primary-color);
     color: var(--secondary-color);
     margin: auto auto 0% 0%;
