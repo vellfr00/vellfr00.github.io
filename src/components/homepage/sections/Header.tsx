@@ -5,10 +5,16 @@ interface HeaderProps {
 }
 
 function Header({ onAnimationFinished }: HeaderProps) {
+  const HOMEPAGE_HEADER_CLASSNAME = 'homepage-header';
+  const NAME_TYPEWRITER_H1_ID = 'name-typewriter';
+  const PROFESSION_TYPEWRITER_H2_ID = 'profession-typewriter';
+  const GREETINGS_TYPEWRITER_H3_ID = 'greetings-typewriter';
+  const DISCOVER_MORE_TYPEWRITER_SPAN_ID = 'discover-more-typewriter';
+
   let nameTypewriter: TypewriterClass | null = null;
   let professionTypewriter: TypewriterClass | null = null;
   let greetingsTypewriter: TypewriterClass | null = null;
-  let discoverMoreBtnTypewriter: TypewriterClass | null = null;
+  let discoverMoreTypewriter: TypewriterClass | null = null;
 
   const setCursorDisplayByContainerId = (containerId: string, display: string): void => {
     const cursor = document.querySelector<HTMLElement>(`#${containerId} .Typewriter__cursor`);
@@ -17,15 +23,15 @@ function Header({ onAnimationFinished }: HeaderProps) {
   }
 
   return (
-    <div className='homepage-header'>
-      <h1 id='name-typewriter'>
+    <div className={HOMEPAGE_HEADER_CLASSNAME}>
+      <h1 id={NAME_TYPEWRITER_H1_ID}>
         <Typewriter
           onInit={(_nameTypewriter) => {
             _nameTypewriter
               .typeString('Hi, I am Francesco')
               .callFunction(() => {
                 professionTypewriter?.start();
-                setCursorDisplayByContainerId('name-typewriter', 'none');
+                setCursorDisplayByContainerId(NAME_TYPEWRITER_H1_ID, 'none');
               })
               .stop();
 
@@ -33,21 +39,21 @@ function Header({ onAnimationFinished }: HeaderProps) {
           }}
         />
       </h1>
-      <h2 id='profession-typewriter'>
+      <h2 id={PROFESSION_TYPEWRITER_H2_ID}>
         <Typewriter
           onInit={(_professionTypewriter) => {
-            setCursorDisplayByContainerId('profession-typewriter', 'none');
+            setCursorDisplayByContainerId(PROFESSION_TYPEWRITER_H2_ID, 'none');
 
             _professionTypewriter
               .callFunction(() => {
-                setCursorDisplayByContainerId('profession-typewriter', 'inline');
+                setCursorDisplayByContainerId(PROFESSION_TYPEWRITER_H2_ID, 'inline');
               })
               .changeDelay(50)
               .pauseFor(500)
               .typeString('Passionate Software Engineer')
               .callFunction(() => {
                 greetingsTypewriter?.start();
-                setCursorDisplayByContainerId('profession-typewriter', 'none');
+                setCursorDisplayByContainerId(PROFESSION_TYPEWRITER_H2_ID, 'none');
               })
               .stop();
 
@@ -55,21 +61,21 @@ function Header({ onAnimationFinished }: HeaderProps) {
           }}
         />
       </h2>
-      <h3 id='greetings-typewriter'>
+      <h3 id={GREETINGS_TYPEWRITER_H3_ID}>
         <Typewriter
           onInit={(_greetingsTypewriter) => {
-            setCursorDisplayByContainerId('greetings-typewriter', 'none');
+            setCursorDisplayByContainerId(GREETINGS_TYPEWRITER_H3_ID, 'none');
 
             _greetingsTypewriter
               .callFunction(() => {
-                setCursorDisplayByContainerId('greetings-typewriter', 'inline');
+                setCursorDisplayByContainerId(GREETINGS_TYPEWRITER_H3_ID, 'inline');
               })
               .changeDelay(50)
               .pauseFor(300)
               .typeString('Nice to meet you!')
               .callFunction(() => {
-                discoverMoreBtnTypewriter?.start();
-                setCursorDisplayByContainerId('greetings-typewriter', 'none');
+                discoverMoreTypewriter?.start();
+                setCursorDisplayByContainerId(GREETINGS_TYPEWRITER_H3_ID, 'none');
               })
               .stop();
 
@@ -77,23 +83,23 @@ function Header({ onAnimationFinished }: HeaderProps) {
           }}
         />
       </h3>
-      <span id="discover-more-typewriter">
+      <span id={DISCOVER_MORE_TYPEWRITER_SPAN_ID}>
         <Typewriter
-          onInit={(_discoverMoreBtnTypewriter) => {
-            setCursorDisplayByContainerId('discover-more-typewriter', 'none');
+          onInit={(_discoverMoreTypewriter) => {
+            setCursorDisplayByContainerId(DISCOVER_MORE_TYPEWRITER_SPAN_ID, 'none');
 
-            _discoverMoreBtnTypewriter
+            _discoverMoreTypewriter
               .callFunction(() => {
-                setCursorDisplayByContainerId('discover-more-typewriter', 'inline');
+                setCursorDisplayByContainerId(DISCOVER_MORE_TYPEWRITER_SPAN_ID, 'inline');
               })
               .changeDelay(50)
               .pauseFor(300)
               .typeString('Scroll down to discover more about me!')
-              .callFunction(() => setCursorDisplayByContainerId('discover-more-typewriter', 'none'))
+              .callFunction(() => setCursorDisplayByContainerId(DISCOVER_MORE_TYPEWRITER_SPAN_ID, 'none'))
               .stop()
               .callFunction(() => onAnimationFinished());
 
-            discoverMoreBtnTypewriter = _discoverMoreBtnTypewriter;
+            discoverMoreTypewriter = _discoverMoreTypewriter;
 
             nameTypewriter?.start();
           }}
