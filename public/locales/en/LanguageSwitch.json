@@ -1,0 +1,12 @@
+{
+    "languages": {
+        "en": {
+            "name": "English",
+            "_react_world_flags_code": "us"
+        },
+        "it": {
+            "name": "Italian",
+            "_react_world_flags_code": "it"
+        }
+    }
+}

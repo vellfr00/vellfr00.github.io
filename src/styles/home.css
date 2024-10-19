@@ -3,6 +3,7 @@
 body {
   margin: 0px;
   background-color: var(--background-color);
+  --homepage-font-family: "Fira Code", monospace;
 }
 
 ._homepage-scrollable-section {
@@ -13,7 +14,7 @@ body {
 .homepage-header {
   display: flex;
   flex-direction: column;
-  font-family: "Fira Code", monospace;
+  font-family: var(--homepage-font-family);
   font-optical-sizing: auto;
   font-weight: 300;
   font-style: normal;

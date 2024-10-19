@@ -1,6 +1,10 @@
 :root {
-  --primary-color: #76ABAE;
-  --secondary-color: #31363F;
-  --background-color: #222831;
-  --text-color: #EEEEEE;
+  --primary-color: rgb(118, 171, 174);
+  --secondary-color: rgb(49, 54, 63);
+  --background-color: rgb(34, 40, 49);
+  --text-color: rgb(238, 238, 238);
+
+  --language-switch-color: rgba(118, 171, 174, 0.75);
+  --language-switch-color-selected: rgba(118, 171, 174, 0.50);
+  --language-switch-color-unselected: rgba(118, 171, 174, 0.25);
 }
