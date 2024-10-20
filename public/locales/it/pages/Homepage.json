@@ -1,14 +1,14 @@
 {
-    "Header": {
-        "NAME": "Ciao, mi chiamo Francesco",
-        "PROFESSION": "Software Engineer per passione",
-        "GREETINGS": "Piacere di conoscerti!",
-        "DISCOVER_MORE": "Scorri giù per scoprire altro su di me!"
-    },
-    "WhoAmI": {
-        "TITLE": "Chi sono?",
-        "SHORT_PRESENTATION": "Sono un Software Engineer, con una forte passione per la tecnologia e l'innovazione!",
-        "CURRENT_SITUATION": "Attualmente occupato come Full-Stack Web Engineer, faccio uso delle ultime tecnologie Frontend & Backend per progettare e costruire applicazioni web efficaci.",
-        "FUTURE_GOALS": "Sono sempre alla ricerca di nuove sfide e opportunità di crescita e miglioramento. Per il futuro sto specializzandomi in software di più basso livello, con un focus particolare per il linguaggio di programmazione Rust."
-    }
+  "Header": {
+    "NAME": "Ciao, mi chiamo Francesco",
+    "PROFESSION": "Software Engineer per passione",
+    "GREETINGS": "Piacere di conoscerti!",
+    "DISCOVER_MORE": "Scorri giù per scoprire altro su di me!"
+  },
+  "WhoAmI": {
+    "TITLE": "Chi sono?",
+    "SHORT_PRESENTATION": "Sono un Software Engineer, con una forte passione per la tecnologia e l'innovazione!",
+    "CURRENT_SITUATION": "Attualmente occupato come Full-Stack Web Engineer, faccio uso delle ultime tecnologie Frontend & Backend per progettare e costruire applicazioni web efficaci.",
+    "FUTURE_GOALS": "Sono sempre alla ricerca di nuove sfide e opportunità di crescita e miglioramento. Per il futuro sto specializzandomi in software di più basso livello, con un focus particolare per il linguaggio di programmazione Rust."
+  }
 }
