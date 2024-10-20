@@ -2,11 +2,12 @@ import Typewriter, { TypewriterClass } from 'typewriter-effect';
 import { useTranslation } from 'react-i18next';
 
 interface HeaderProps {
+  singleSectionClassName: string;
   onAnimationFinished: () => void;
   isLanguageChanged?: boolean;
 }
 
-function Header({ onAnimationFinished, isLanguageChanged }: HeaderProps) {
+function Header({ singleSectionClassName, onAnimationFinished, isLanguageChanged }: HeaderProps) {
   const HOMEPAGE_HEADER_CLASSNAME = 'homepage-header';
   const NAME_TYPEWRITER_H1_ID = 'name-typewriter';
   const PROFESSION_TYPEWRITER_H2_ID = 'profession-typewriter';
@@ -32,7 +33,7 @@ function Header({ onAnimationFinished, isLanguageChanged }: HeaderProps) {
   * By doing this, the correct translation will be displayed.
   * */
   return (
-    <div className={HOMEPAGE_HEADER_CLASSNAME}>
+    <div className={`${singleSectionClassName} ${HOMEPAGE_HEADER_CLASSNAME}`}>
       <h1 id={NAME_TYPEWRITER_H1_ID}>
         { isLanguageChanged ? t('Header.NAME') : 
           <Typewriter

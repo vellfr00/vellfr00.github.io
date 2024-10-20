@@ -4,5 +4,11 @@
         "PROFESSION": "Passionate Software Engineer",
         "GREETINGS": "Nice to meet you!",
         "DISCOVER_MORE": "Scroll down to discover more about me!"
+    },
+    "WhoAmI": {
+        "TITLE": "Who am I?",
+        "SHORT_PRESENTATION": "I am a Software Engineer, strongly passionate about technology and innovation!",
+        "CURRENT_SITUATION": "Currently occupied as a Full-Stack Web Engineer, I make use of the latest Frontend & Backend technologies to design and build efficient web applications.",
+        "FUTURE_GOALS": "I am always looking for new challenges and opportunities to grow and improve my skills. For the future I am specializing in lower-level software engineering, with particular focus on the Rust programming language."
     }
 }

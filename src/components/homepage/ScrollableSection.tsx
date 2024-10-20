@@ -5,8 +5,9 @@ interface ScrollableSectionProps {
 }
 
 function ScrollableSection({ children }: ScrollableSectionProps) {
+  const HOMEPAGE_SCROLLABLE_SECTION_CLASSNAME = '_homepage-scrollable-section';
   return (
-    <div className="_homepage-scrollable-section">
+    <div className={HOMEPAGE_SCROLLABLE_SECTION_CLASSNAME}>
       {children}
     </div>
   );

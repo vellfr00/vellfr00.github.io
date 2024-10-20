@@ -1,0 +1,10 @@
+.homepage-whoami {
+    h2 {
+        color: var(--primary-color);
+    }
+
+    p {
+        color: var(--text-color);
+        font-weight: 300;
+    }
+}
