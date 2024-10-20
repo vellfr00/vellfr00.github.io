@@ -3,6 +3,7 @@
 @import url("./sections/header.css");
 @import url("./sections/whoami.css");
 
+@import url("./discover-more.css");
 @import url("./language-switch.css");
 
 :root {

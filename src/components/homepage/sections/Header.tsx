@@ -1,10 +1,12 @@
 import Typewriter, { TypewriterClass } from 'typewriter-effect';
 import { useTranslation } from 'react-i18next';
+import DiscoverMoreTypewriter from '../DiscoverMoreTypewriter';
+import { useEffect, useState } from 'react';
 
 interface HeaderProps {
   singleSectionClassName: string;
   onAnimationFinished: () => void;
-  isLanguageChanged?: boolean;
+  isLanguageChanged: boolean;
 }
 
 function Header({ singleSectionClassName, onAnimationFinished, isLanguageChanged }: HeaderProps) {
@@ -99,30 +101,15 @@ function Header({ singleSectionClassName, onAnimationFinished, isLanguageChanged
           />
         }
       </h3>
-      <span id={DISCOVER_MORE_TYPEWRITER_SPAN_ID}>
-        { isLanguageChanged ? t('Header.DISCOVER_MORE') : 
-          <Typewriter
-            onInit={(_discoverMoreTypewriter) => {
-              setCursorDisplayByContainerId(DISCOVER_MORE_TYPEWRITER_SPAN_ID, 'none');
-
-              _discoverMoreTypewriter
-                .callFunction(() => {
-                  setCursorDisplayByContainerId(DISCOVER_MORE_TYPEWRITER_SPAN_ID, 'inline');
-                })
-                .changeDelay(25)
-                .pauseFor(300)
-                .typeString(t('Header.DISCOVER_MORE'))
-                .callFunction(() => setCursorDisplayByContainerId(DISCOVER_MORE_TYPEWRITER_SPAN_ID, 'none'))
-                .stop()
-                .callFunction(() => onAnimationFinished());
-
-              discoverMoreTypewriter = _discoverMoreTypewriter;
-
-              nameTypewriter?.start();
-            }}
-          />
-        }
-      </span>
+      <DiscoverMoreTypewriter
+        section = 'Header'
+        isLanguageChanged = { isLanguageChanged }
+        onInitCompleted={ (_discoverMoreTypewriter) => {
+          discoverMoreTypewriter = _discoverMoreTypewriter;
+          nameTypewriter?.start();
+        } }
+        onAnimationFinished = { onAnimationFinished }
+      />
     </div>
   )
 }
