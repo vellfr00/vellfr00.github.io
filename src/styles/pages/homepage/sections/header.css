@@ -1,16 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
-
-body {
-  margin: 0px;
-  background-color: var(--background-color);
-  --homepage-font-family: "Fira Code", monospace;
-}
-
-._homepage-scrollable-section {
-  display: flex;
-  flex-direction: column;
-}
-
 .homepage-header {
   display: flex;
   flex-direction: column;
@@ -18,8 +5,12 @@ body {
   font-optical-sizing: auto;
   font-weight: 300;
   font-style: normal;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.75), var(--background-color)),
-                    url('/public/images/Header-background.webp');
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.75),
+      var(--background-color)
+    ),
+    url("/public/images/Header-background.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

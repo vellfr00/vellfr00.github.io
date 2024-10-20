@@ -1,6 +1,5 @@
 import Typewriter, { TypewriterClass } from 'typewriter-effect';
 import { useTranslation } from 'react-i18next';
-import { useEffect, useState } from 'react';
 
 interface HeaderProps {
   onAnimationFinished: () => void;

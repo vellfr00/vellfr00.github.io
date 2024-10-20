@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
+
+@import url('./sections/header.css');
+@import url('./language-switch.css');
+
+:root {
+  --homepage-font-family: "Fira Code", monospace;
+}
+
+body {
+  margin: 0px;
+  background-color: var(--background-color);
+}
+
+._homepage-scrollable-section {
+  display: flex;
+  flex-direction: column;
+}
