@@ -1,4 +1,4 @@
-name: Refresh API Cache
+name: Build, refresh API cache and Deploy
 
 on: [push]
 
@@ -6,7 +6,7 @@ permissions:
   contents: write
 
 jobs:
-  build:
+  build-refresh-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,30 +19,16 @@ jobs:
     - name: Build
       run: npm run build
 
-  refresh-user-repositories-api-cache:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
-    - name: Fetch API Data
+    - name: Fetch user repositories API data
       uses: JamesIves/fetch-api-data-action@v2.4.1
       with:
         endpoint: https://api.github.com/users/vellfr00/repos?type=owner&sort=updated&direction=asc
         configuration: '{ "method": "GET", "headers": { "Authorization": "Bearer ${{ secrets.GET_USER_PUBLIC_REPOSITORIES_GITHUB_API_TOKEN }}" } }'
   
-    - name: Copy API data
+    - name: Copy user repositories API response
       run: cp fetch-api-data-action/data.json build/_api__cache/vellfr00/_cached__getUserPublicRepositories.json
 
-  deploy:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
-    - name: Deploy
+    - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4
       with:
         branch: gh-pages
