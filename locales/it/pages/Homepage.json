@@ -1,0 +1,23 @@
+{
+  "Header": {
+    "NAME": "Ciao, mi chiamo Francesco",
+    "PROFESSION": "Software Engineer per passione",
+    "GREETINGS": "Piacere di conoscerti!",
+    "DISCOVER_MORE": "Scorri giù per scoprire altro su di me!"
+  },
+  "WhoAmI": {
+    "TITLE": "Chi sono?",
+    "SHORT_PRESENTATION": "Sono un Software Engineer, con una forte passione per la tecnologia e l'innovazione!",
+    "CURRENT_SITUATION": "Attualmente occupato come Full-Stack Web Engineer, faccio uso delle ultime tecnologie Frontend & Backend per progettare e costruire applicazioni web efficaci.",
+    "FUTURE_GOALS": "Sono sempre alla ricerca di nuove sfide e opportunità di crescita e miglioramento. Per il futuro sto specializzandomi in software di più basso livello, con un focus particolare per il linguaggio di programmazione Rust.",
+    "DISCOVER_MORE": "Scorri giù per vedere alcuni dei miei lavori!"
+  },
+  "Projects": {
+    "TITLE": "Alcuni piccoli lavoretti",
+    "PRESENTATION": "Ecco alcuni dei progetti su cui ho lavorato, disponibili come repository pubblici su GitHub.",
+    "DISCLAIMER": "Non tutto ciò che creo è elencato qui, poiché alcuni progetti sono privati o non possono essere condivisi in quanto fanno parte del mio lavoro.",
+    "LOADING": "Caricamento dei progetti da GitHub...",
+    "ERROR_LOADING": "Ops! Sembra che ci sia stato un errore durante il caricamento dei progetti. Riprova più tardi.",
+    "NO_DESCRIPTION_AVAILABLE": "Ops! Nessuna descrizione disponibile per questo progetto."
+  }
+}
