@@ -1,6 +1,9 @@
 name: Build, refresh API cache and Deploy
 
-on: [push, workflow_dispatch]
+on:
+  push:
+    branches:
+      - main
 
 permissions:
   contents: write
