@@ -1,0 +1,85 @@
+:root {
+  --loading-paragraph-color: var(--primary-color);
+  --error-paragraph-color: rgb(255, 0, 0);
+}
+
+.homepage-projects {
+  h2 {
+    color: var(--primary-color);
+  }
+
+  p {
+    color: var(--text-color);
+    font-weight: 300;
+  }
+
+  .loading-paragraph {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--loading-paragraph-color);
+    font-weight: 500;
+    padding: 0 5px;
+    gap: 5px;
+  }
+
+  .error-paragraph {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--error-paragraph-color);
+    font-weight: 500;
+    padding: 0 5px;
+    gap: 5px;
+  }
+
+  #projects-container {
+    height: fit-content;
+    max-height: 50%;
+    @media (max-width: 768px) {
+      max-width: 90%;
+      margin: 10px auto;
+    }
+
+    .slick-slide > div {
+      margin: 3px;
+    }
+
+    .repository-card {
+      background-color: var(--secondary-color);
+      font-family: var(--homepage-font-family);
+      max-height: 75%;
+
+      #repository-lastupdate {
+        font-family: var(--homepage-font-family);
+        font-weight: 300;
+        font-size: 13px;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        height: auto;
+
+        span {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-items: center;
+          gap: 5px;
+          padding: 3px;
+        }
+      }
+
+      #repository-name {
+        color: var(--primary-color);
+        font-weight: 500;
+      }
+
+      #repository-description {
+        color: var(--text-color);
+        font-size: 13px;
+        font-weight: 300;
+      }
+    }
+  }
+}

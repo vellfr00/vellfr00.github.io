@@ -5,6 +5,7 @@ import ScrollableSection from '../components/homepage/ScrollableSection';
 import FloatingLanguageSwitch from '../components/homepage/FloatingLanguageSwitch';
 import WhoAmI from '../components/homepage/sections/WhoAmI';
 import '../styles/pages/homepage/Homepage.css';
+import Projects from '../components/homepage/sections/Projects';
 
 function Homepage() {
   const HOMEPAGE_SINGLE_SECTION_CLASSNAME = '_homepage-section';
@@ -20,7 +21,7 @@ function Homepage() {
   useEffect(() => {
     if (!viewedSections.includes(currentSectionIndex))
       setViewedSections([...viewedSections, currentSectionIndex]);
-  }, [currentSectionIndex]);
+  }, [currentSectionIndex, viewedSections]);
 
   const wasSectionViewed = (sectionIndex: number): boolean => viewedSections.includes(sectionIndex);
 
@@ -35,15 +36,22 @@ function Homepage() {
           />
         </ScrollableSection>
         { isHeaderAnimationFinished && 
-          <>
-            <ScrollableSection>
-              <WhoAmI 
-                singleSectionClassName = { HOMEPAGE_SINGLE_SECTION_CLASSNAME }
-                isLanguageChanged = { isLanguageChanged }
-                wasSectionViewed = { wasSectionViewed(1) }
-              />
-            </ScrollableSection>
-          </>
+          <ScrollableSection>
+            <WhoAmI 
+              singleSectionClassName = { HOMEPAGE_SINGLE_SECTION_CLASSNAME }
+              isLanguageChanged = { isLanguageChanged }
+              wasSectionViewed = { wasSectionViewed(1) }
+            />
+          </ScrollableSection>
+        }
+        { isHeaderAnimationFinished && 
+          <ScrollableSection>
+            <Projects 
+              singleSectionClassName = { HOMEPAGE_SINGLE_SECTION_CLASSNAME }
+              isLanguageChanged = { isLanguageChanged }
+              wasSectionViewed = { wasSectionViewed(2) }
+            />
+          </ScrollableSection>
         }
       </MegaScroll>
       { isHeaderAnimationFinished && <FloatingLanguageSwitch onLanguageChange={ () => setIsLanguageChanged(true) } /> }

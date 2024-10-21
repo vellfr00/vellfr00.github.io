@@ -1,7 +1,6 @@
 import Typewriter, { TypewriterClass } from 'typewriter-effect';
 import { useTranslation } from 'react-i18next';
 import DiscoverMoreTypewriter from '../DiscoverMoreTypewriter';
-import { useEffect, useState } from 'react';
 
 interface HeaderProps {
   singleSectionClassName: string;
@@ -14,7 +13,6 @@ function Header({ singleSectionClassName, onAnimationFinished, isLanguageChanged
   const NAME_TYPEWRITER_H1_ID = 'name-typewriter';
   const PROFESSION_TYPEWRITER_H2_ID = 'profession-typewriter';
   const GREETINGS_TYPEWRITER_H3_ID = 'greetings-typewriter';
-  const DISCOVER_MORE_TYPEWRITER_SPAN_ID = 'discover-more-typewriter';
 
   let nameTypewriter: TypewriterClass | null = null;
   let professionTypewriter: TypewriterClass | null = null;

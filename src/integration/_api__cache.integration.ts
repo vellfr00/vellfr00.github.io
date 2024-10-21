@@ -1,0 +1,6 @@
+const PUBLIC_API_CACHED_FOLDER_URL = "/_api__cache/";
+
+export async function get_cached__apiResponse(cachedResponseFilePath: string) {
+    const response = await fetch(PUBLIC_API_CACHED_FOLDER_URL + cachedResponseFilePath);
+    return await response.json();
+}

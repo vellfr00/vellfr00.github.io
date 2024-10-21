@@ -11,5 +11,13 @@
     "CURRENT_SITUATION": "Currently occupied as a Full-Stack Web Engineer, I make use of the latest Frontend & Backend technologies to design and build efficient web applications.",
     "FUTURE_GOALS": "I am always looking for new challenges and opportunities to grow and improve my skills. For the future I am specializing in lower-level software engineering, with particular focus on the Rust programming language.",
     "DISCOVER_MORE": "Scroll down to see some of my work!"
+  },
+  "Projects": {
+    "TITLE": "Some little works",
+    "PRESENTATION": "Here are some of the projects I have worked on, available as public repositories on GitHub.",
+    "DISCLAIMER": "Not everything I create is listed here, since some projects are private or cannot be shared since they are part of my job.",
+    "LOADING": "Loading projects from GitHub...",
+    "ERROR_LOADING": "Ops! Looks like there was an error while loading the projects. Please try again later.",
+    "NO_DESCRIPTION_AVAILABLE": "Ops! No description available for this project."
   }
 }

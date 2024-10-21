@@ -1,6 +1,5 @@
 import { useTranslation } from "react-i18next";
 import DiscoverMoreTypewriter from "../DiscoverMoreTypewriter";
-import { TypewriterClass } from "typewriter-effect";
 
 interface WhoAmIProps {
   isLanguageChanged: boolean;
@@ -8,13 +7,9 @@ interface WhoAmIProps {
   wasSectionViewed: boolean;
 }
 
-function WhoAmI({
-  isLanguageChanged,
-  singleSectionClassName,
-  wasSectionViewed,
-}: WhoAmIProps) {
+function WhoAmI({ isLanguageChanged, singleSectionClassName, wasSectionViewed }: WhoAmIProps) {
   const HOMEPAGE_WHOAMI_CLASSNAME = "homepage-whoami";
-
+  
   const { t } = useTranslation("pages/Homepage");
 
   return (
