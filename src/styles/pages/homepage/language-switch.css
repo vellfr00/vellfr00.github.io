@@ -1,0 +1,9 @@
+:root {
+  --language-switch-color: rgba(255, 255, 255, 0);
+  --language-switch-color-selected: rgba(118, 171, 174, 0.75);
+  --language-switch-color-unselected: rgba(118, 171, 174, 0.25);
+}
+
+.rtf {
+  font-family: var(--homepage-font-family);
+}
