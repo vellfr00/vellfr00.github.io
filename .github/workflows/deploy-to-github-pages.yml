@@ -19,11 +19,15 @@ jobs:
     - name: Build
       run: npm run build
 
+    - name: Create API cache directory
+      run: mkdir -p build/_api__cache/vellfr00
+
     - name: Fetch user repositories API data
       uses: JamesIves/fetch-api-data-action@v2.4.1
       with:
         endpoint: https://api.github.com/users/vellfr00/repos?type=owner&sort=updated&direction=asc
         configuration: '{ "method": "GET", "headers": { "Authorization": "Bearer ${{ secrets.GET_USER_PUBLIC_REPOSITORIES_GITHUB_API_TOKEN }}" } }'
+        debug: true
   
     - name: Copy user repositories API response
       run: cp fetch-api-data-action/data.json build/_api__cache/vellfr00/_cached__getUserPublicRepositories.json
