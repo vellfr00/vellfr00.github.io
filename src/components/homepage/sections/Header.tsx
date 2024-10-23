@@ -10,6 +10,7 @@ interface HeaderProps {
 
 function Header({ singleSectionClassName, onAnimationFinished, isLanguageChanged }: HeaderProps) {
   const HOMEPAGE_HEADER_CLASSNAME = 'homepage-header';
+  const HEADER_BACKGROUND_SHOW_CLASSNAME = 'header-background-show';
   const NAME_TYPEWRITER_H1_ID = 'name-typewriter';
   const PROFESSION_TYPEWRITER_H2_ID = 'profession-typewriter';
   const GREETINGS_TYPEWRITER_H3_ID = 'greetings-typewriter';
@@ -37,6 +38,7 @@ function Header({ singleSectionClassName, onAnimationFinished, isLanguageChanged
       <h1 id={NAME_TYPEWRITER_H1_ID}>
         { isLanguageChanged ? t('Header.NAME') : 
           <Typewriter
+            options={{ delay: 50 }}
             onInit={(_nameTypewriter) => {
               _nameTypewriter
                 .typeString(t('Header.NAME'))
@@ -54,6 +56,7 @@ function Header({ singleSectionClassName, onAnimationFinished, isLanguageChanged
       <h2 id={PROFESSION_TYPEWRITER_H2_ID}>
         { isLanguageChanged ? t('Header.PROFESSION') : 
           <Typewriter
+            options={{ delay: 50 }}
             onInit={(_professionTypewriter) => {
               setCursorDisplayByContainerId(PROFESSION_TYPEWRITER_H2_ID, 'none');
 
@@ -61,7 +64,6 @@ function Header({ singleSectionClassName, onAnimationFinished, isLanguageChanged
                 .callFunction(() => {
                   setCursorDisplayByContainerId(PROFESSION_TYPEWRITER_H2_ID, 'inline');
                 })
-                .changeDelay(50)
                 .pauseFor(500)
                 .typeString(t('Header.PROFESSION'))
                 .callFunction(() => {
@@ -78,6 +80,7 @@ function Header({ singleSectionClassName, onAnimationFinished, isLanguageChanged
       <h3 id={GREETINGS_TYPEWRITER_H3_ID}>
         { isLanguageChanged ? t('Header.GREETINGS') : 
           <Typewriter
+            options={{ delay: 50 }}
             onInit={(_greetingsTypewriter) => {
               setCursorDisplayByContainerId(GREETINGS_TYPEWRITER_H3_ID, 'none');
 
@@ -85,7 +88,6 @@ function Header({ singleSectionClassName, onAnimationFinished, isLanguageChanged
                 .callFunction(() => {
                   setCursorDisplayByContainerId(GREETINGS_TYPEWRITER_H3_ID, 'inline');
                 })
-                .changeDelay(50)
                 .pauseFor(300)
                 .typeString(t('Header.GREETINGS'))
                 .callFunction(() => {
@@ -106,7 +108,10 @@ function Header({ singleSectionClassName, onAnimationFinished, isLanguageChanged
           discoverMoreTypewriter = _discoverMoreTypewriter;
           nameTypewriter?.start();
         } }
-        onAnimationFinished = { onAnimationFinished }
+        onAnimationFinished = { () => {
+          document.querySelector<HTMLElement>(`.${HOMEPAGE_HEADER_CLASSNAME}`)?.classList.add(HEADER_BACKGROUND_SHOW_CLASSNAME);
+          onAnimationFinished();
+        } }
       />
     </div>
   )

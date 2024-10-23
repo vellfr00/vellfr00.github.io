@@ -29,12 +29,12 @@ function DiscoverMoreTypewriter({
     <span id={DISCOVER_MORE_TYPEWRITER_SPAN_ID}>
       {isLanguageChanged ? (t(`${section}.DISCOVER_MORE`)) : (
         <Typewriter
+          options={{ delay: 25 }}
           onInit={(_discoverMoreTypewriter) => {
             setCursorDisplay("none");
 
             _discoverMoreTypewriter
               .callFunction(() => setCursorDisplay("inline"))
-              .changeDelay(25)
               .pauseFor(300)
               .typeString(t(`${section}.DISCOVER_MORE`))
               .callFunction(() => setCursorDisplay("none"))

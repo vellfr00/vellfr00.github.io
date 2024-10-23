@@ -1,11 +1,6 @@
 .homepage-header {
   font-weight: 300;
-  background-image: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.75),
-      var(--background-color)
-    ),
-    url("/public/images/Header-background.webp");
+  position: relative;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -20,5 +15,34 @@
 
   h3 {
     color: var(--text-color);
+  }
+}
+
+.header-background-show::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.75),
+      var(--background-color)
+    ),
+    url("/public/images/Header-background.webp");
+  z-index: -1;
+  background-position: center;
+  background-size: cover;
+  z-index: -1;
+  animation: fadeInBackground 2s ease-in-out;
+}
+
+@keyframes fadeInBackground {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
