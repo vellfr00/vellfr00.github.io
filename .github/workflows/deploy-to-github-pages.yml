@@ -35,11 +35,12 @@ jobs:
     - name: Copy user repositories API response
       run: cp fetch-api-data-action/data.json build/api__cache/github/vellfr00/cached__getUserPublicRepositories.json
 
+    - name: List complete build directory
+      run: ls -R build
+
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4
       with:
         branch: gh-pages
         folder: build
-        clean: true
-        clean-exclude: api__cache/**
-            
+        clean: false
