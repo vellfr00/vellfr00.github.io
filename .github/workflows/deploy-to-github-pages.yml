@@ -23,7 +23,7 @@ jobs:
       run: npm run build
 
     - name: Create API cache directory
-      run: mkdir -p build/_api__cache/github/vellfr00
+      run: mkdir -p build/api__cache/github/vellfr00
 
     - name: Fetch user repositories API data
       uses: JamesIves/fetch-api-data-action@v2.4.1
@@ -33,7 +33,7 @@ jobs:
         debug: true
   
     - name: Copy user repositories API response
-      run: cp fetch-api-data-action/data.json build/_api__cache/github/vellfr00/_cached__getUserPublicRepositories.json
+      run: cp fetch-api-data-action/data.json build/api__cache/github/vellfr00/cached__getUserPublicRepositories.json
 
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4
@@ -41,5 +41,5 @@ jobs:
         branch: gh-pages
         folder: build
         clean: true
-        clean-exclude: _api__cache/**
+        clean-exclude: api__cache/**
             

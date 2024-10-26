@@ -1,4 +1,4 @@
-import { get_cached__apiResponse } from "./_api__cache.integration";
+import { get_cached__apiResponse } from "./api__cache.integration";
 
 export type GitHubRepositoryInformation = {
   fullName: string;
@@ -8,7 +8,7 @@ export type GitHubRepositoryInformation = {
 };
 
 export async function getUserPublicRepositories(user: string): Promise<GitHubRepositoryInformation[] | null> {
-  const GETUSERPUBLICREPOSITORIES_CACHE_FILE_PATH = `github/${user}/_cached__getUserPublicRepositories.json`;
+  const GETUSERPUBLICREPOSITORIES_CACHE_FILE_PATH = `github/${user}/cached__getUserPublicRepositories.json`;
   const _cached__getUserPublicRepositories = await get_cached__apiResponse(GETUSERPUBLICREPOSITORIES_CACHE_FILE_PATH);
 
   if(_cached__getUserPublicRepositories) {
