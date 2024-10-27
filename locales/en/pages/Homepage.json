@@ -13,11 +13,13 @@
     "DISCOVER_MORE": "Scroll down to see some of my work!"
   },
   "Projects": {
+    "_date_locale": "en-US",
     "TITLE": "Some little works",
     "PRESENTATION": "Here are some of the projects I have worked on, available as public repositories on GitHub.",
     "DISCLAIMER": "Not everything I create is listed here, since some projects are private or cannot be shared since they are part of my job.",
     "LOADING": "Loading projects from GitHub...",
     "ERROR_LOADING": "Ops! Looks like there was an error while loading the projects. Please try again later.",
-    "NO_DESCRIPTION_AVAILABLE": "Ops! No description available for this project."
+    "NO_DESCRIPTION_AVAILABLE": "Ops! No description available for this project.",
+    "LAST_DATA_UPDATE": "The data shown in this section was last updated on {{repositoriesLastUpdate}}"
   }
 }
