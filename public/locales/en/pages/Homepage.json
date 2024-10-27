@@ -13,6 +13,7 @@
     "DISCOVER_MORE": "Scroll down to see some of my work!"
   },
   "Projects": {
+    "_date_locale": "en-US",
     "TITLE": "Some little works",
     "PRESENTATION": "Here are some of the projects I have worked on, available as public repositories on GitHub.",
     "DISCLAIMER": "Not everything I create is listed here, since some projects are private or cannot be shared since they are part of my job.",

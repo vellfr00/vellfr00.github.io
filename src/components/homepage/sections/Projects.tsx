@@ -57,7 +57,7 @@ function Projects({ isLanguageChanged, singleSectionClassName, wasSectionViewed 
       <p>{t("Projects.DISCLAIMER")}</p>
       { !isLoading && !isError && 
         <p id={LAST_REPOSITORIES_UPDATE_ID}>
-          ( { t('Projects.LAST_DATA_UPDATE', { repositoriesLastUpdate: repositoriesLastUpdate?.toLocaleDateString() }) } )
+          ( { t('Projects.LAST_DATA_UPDATE', { repositoriesLastUpdate: repositoriesLastUpdate?.toLocaleDateString(t('Projects._date_locale')) }) } )
         </p>
       }
       <div id={PROJECTS_CONTAINER_ID}>
@@ -131,7 +131,7 @@ function GitHubRepositoryCard({ repository }: { repository: GitHubRepositoryInfo
       <CardContent>
         <Chip id={REPOSITORY_LASTUPDATE_ID}>
           <CalendarMonthIcon fontSize="inherit" />
-          {repository.lastUpdate.toLocaleDateString()}
+          {repository.lastUpdate.toLocaleDateString(t('Projects._date_locale'))}
         </Chip>
         <h3 id={REPOSITORY_NAME_ID}>{repository.fullName}</h3>
         <p id={REPOSITORY_DESCRIPTION_ID}>{repository.description ?? t("Projects.NO_DESCRIPTION_AVAILABLE")}</p>
