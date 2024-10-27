@@ -18,6 +18,7 @@
     "DISCLAIMER": "Not everything I create is listed here, since some projects are private or cannot be shared since they are part of my job.",
     "LOADING": "Loading projects from GitHub...",
     "ERROR_LOADING": "Ops! Looks like there was an error while loading the projects. Please try again later.",
-    "NO_DESCRIPTION_AVAILABLE": "Ops! No description available for this project."
+    "NO_DESCRIPTION_AVAILABLE": "Ops! No description available for this project.",
+    "LAST_DATA_UPDATE": "The data shown in this section was last updated on {{repositoriesLastUpdate}}"
   }
 }

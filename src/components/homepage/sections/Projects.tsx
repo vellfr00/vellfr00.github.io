@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { GitHubRepositoryInformation, getUserPublicRepositories } from "../../../integration/github.integration";
+import { GitHubRepositoryInformation, getUserPublicRepositories, getUserPublicRepositoriesLastModified } from "../../../integration/github.integration";
 import { useEffect, useState } from "react";
 import { Card, CardContent, Chip, CircularProgress } from "@mui/joy";
 import Slider from "react-slick";
@@ -19,9 +19,11 @@ function Projects({ isLanguageChanged, singleSectionClassName, wasSectionViewed 
   const PROJECTS_CONTAINER_ID = "projects-container";
   const LOADING_PARAGRAPH_CLASSNAME = "error-paragraph";
   const ERROR_PARAGRAPH_CLASSNAME = "error-paragraph";
+  const LAST_REPOSITORIES_UPDATE_ID = "last-repositories-update";
 
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [repositories, setRepositories] = useState<GitHubRepositoryInformation[] | null>(null);
+  const [repositoriesLastUpdate, setRepositoriesLastUpdate] = useState<Date | null>(null);
   const [isError, setIsError] = useState<boolean>(false);
 
   /**
@@ -38,6 +40,8 @@ function Projects({ isLanguageChanged, singleSectionClassName, wasSectionViewed 
 
         setIsLoading(false);
       })
+      .then(() => getUserPublicRepositoriesLastModified("vellfr00"))
+      .then((lastUpdate) => setRepositoriesLastUpdate(lastUpdate))
       .catch((error) => {
         setIsError(true);
         setIsLoading(false);
@@ -51,6 +55,11 @@ function Projects({ isLanguageChanged, singleSectionClassName, wasSectionViewed 
       <h2>{t("Projects.TITLE")}</h2>
       <p>{t("Projects.PRESENTATION")}</p>
       <p>{t("Projects.DISCLAIMER")}</p>
+      { !isLoading && !isError && 
+        <p id={LAST_REPOSITORIES_UPDATE_ID}>
+          ( { t('Projects.LAST_DATA_UPDATE', { repositoriesLastUpdate: repositoriesLastUpdate?.toLocaleDateString() }) } )
+        </p>
+      }
       <div id={PROJECTS_CONTAINER_ID}>
         {
           isLoading ? 
@@ -64,7 +73,9 @@ function Projects({ isLanguageChanged, singleSectionClassName, wasSectionViewed 
               <ErrorIcon />
               {t("Projects.ERROR_LOADING")}
             </p> : repositories && 
-            <GitHubRepositoriesCarousel repositories={repositories} />
+            <>
+              <GitHubRepositoriesCarousel repositories={repositories} />
+            </>
           )
         }
       </div>
@@ -96,7 +107,9 @@ function GitHubRepositoriesCarousel({ repositories }: { repositories: GitHubRepo
       slidesToShow={slidesNumber}
       slidesToScroll={slidesNumber}
     >
-      { repositories.map((repository, index) => <GitHubRepositoryCard key={index} repository={repository} />) }
+      {repositories.map((repository, index) => (
+        <GitHubRepositoryCard key={index} repository={repository} />
+      ))}
     </Slider>
   );
 }

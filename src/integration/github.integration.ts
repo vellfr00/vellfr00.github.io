@@ -1,4 +1,4 @@
-import { get_cached__apiResponse } from "./api__cache.integration";
+import { get__cached__apiResponse_lastModified, get_cached__apiResponse } from "./api__cache.integration";
 
 export type GitHubRepositoryInformation = {
   fullName: string;
@@ -26,3 +26,9 @@ export async function getUserPublicRepositories(user: string): Promise<GitHubRep
 
   return null;
 };
+
+export async function getUserPublicRepositoriesLastModified(user: string): Promise<Date | null> {
+  const GETUSERPUBLICREPOSITORIES_CACHE_FILE_PATH = `github/${user}/cached__getUserPublicRepositories.json`;
+  const lastUpdateString = await get__cached__apiResponse_lastModified(GETUSERPUBLICREPOSITORIES_CACHE_FILE_PATH);
+  return lastUpdateString ? new Date(lastUpdateString) : null;
+}
