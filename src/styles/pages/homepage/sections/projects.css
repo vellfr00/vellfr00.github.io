@@ -37,28 +37,47 @@
 
   #projects-container {
     height: fit-content;
-    max-height: 50%;
     @media (max-width: 768px) {
       max-width: 90%;
       margin: 10px auto;
     }
 
+    div {
+      height: unset;
+    }
+
+    .slick-track {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .slick-slide {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
     .slick-slide > div {
       margin: 3px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
     }
 
     .repository-card {
+      flex: 1;
       background-color: var(--secondary-color);
       font-family: var(--homepage-font-family);
-      max-height: 75%;
+      white-space: normal;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
 
       #repository-lastupdate {
         font-family: var(--homepage-font-family);
         font-weight: 300;
-        font-size: 13px;
         background-color: var(--background-color);
         color: var(--text-color);
-        height: auto;
+        height: fit-content;
 
         span {
           display: flex;
@@ -66,7 +85,8 @@
           align-items: center;
           justify-items: center;
           gap: 5px;
-          padding: 3px;
+          padding: 5px;
+          font-size: 14px;
         }
       }
 
@@ -80,6 +100,10 @@
         font-size: 13px;
         font-weight: 300;
       }
+    }
+
+    .slick-dots button::before{
+      color: var(--primary-color);
     }
   }
 }

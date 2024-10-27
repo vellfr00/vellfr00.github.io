@@ -90,7 +90,7 @@ function GitHubRepositoriesCarousel({ repositories }: { repositories: GitHubRepo
 
   return (
     <Slider
-      dots={false}
+      dots={true}
       infinite={true}
       speed={500}
       slidesToShow={slidesNumber}
@@ -117,7 +117,7 @@ function GitHubRepositoryCard({ repository }: { repository: GitHubRepositoryInfo
     >
       <CardContent>
         <Chip id={REPOSITORY_LASTUPDATE_ID}>
-          <CalendarMonthIcon />
+          <CalendarMonthIcon fontSize="inherit" />
           {repository.lastUpdate.toLocaleDateString()}
         </Chip>
         <h3 id={REPOSITORY_NAME_ID}>{repository.fullName}</h3>
