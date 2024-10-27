@@ -8,12 +8,32 @@ import '../styles/pages/homepage/Homepage.css';
 import Projects from '../components/homepage/sections/Projects';
 
 function Homepage() {
+  const HOMEPAGE_SCROLL_CONTAINER_CLASSNAME = 'ms-container';
+  const HOMEPAGE_SCROLL_SECTION_BACKGROUND_SHOW_CLASSNAME = 'show-background';
   const HOMEPAGE_SINGLE_SECTION_CLASSNAME = '_homepage-section';
 
   const [isHeaderAnimationFinished, setIsHeaderAnimationFinished] = useState(false);
   const [isLanguageChanged, setIsLanguageChanged] = useState(false);
   const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
   const [viewedSections, setViewedSections] = useState<number[]>([0]);
+  /**
+   * Preload the images and fonts used in the homepage when the component first mounts.
+   */
+  useEffect(() => {
+    const toPreload: { url: string; as: string }[] = [
+      { url: "https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap", as: "font" },
+      { url: "/public/images/Header-background.webp", as: "image" },
+    ];
+
+    toPreload.forEach(({ url, as }) => {
+      const link = document.createElement("link");
+      link.rel = "preload";
+      link.as = as;
+      link.href = url;
+      document.head.appendChild(link);
+    });
+  }, []);
+
   /**
    * When the current section index changes, the viewed sections are updated.
    * If the current section index is not in the viewed sections, it is added.
@@ -31,7 +51,10 @@ function Homepage() {
         <ScrollableSection>
           <Header 
             singleSectionClassName = { HOMEPAGE_SINGLE_SECTION_CLASSNAME }
-            onAnimationFinished = { () => setIsHeaderAnimationFinished(true) }
+            onAnimationFinished = { () => { 
+              setIsHeaderAnimationFinished(true);
+              document.querySelector(`.${HOMEPAGE_SCROLL_CONTAINER_CLASSNAME}`)?.classList.add(HOMEPAGE_SCROLL_SECTION_BACKGROUND_SHOW_CLASSNAME);
+            } }
             isLanguageChanged = { isLanguageChanged }
           />
         </ScrollableSection>

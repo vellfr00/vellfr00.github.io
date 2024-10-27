@@ -10,7 +10,6 @@ interface HeaderProps {
 
 function Header({ singleSectionClassName, onAnimationFinished, isLanguageChanged }: HeaderProps) {
   const HOMEPAGE_HEADER_CLASSNAME = 'homepage-header';
-  const HEADER_BACKGROUND_SHOW_CLASSNAME = 'header-background-show';
   const NAME_TYPEWRITER_H1_ID = 'name-typewriter';
   const PROFESSION_TYPEWRITER_H2_ID = 'profession-typewriter';
   const GREETINGS_TYPEWRITER_H3_ID = 'greetings-typewriter';
@@ -109,7 +108,6 @@ function Header({ singleSectionClassName, onAnimationFinished, isLanguageChanged
           nameTypewriter?.start();
         } }
         onAnimationFinished = { () => {
-          document.querySelector<HTMLElement>(`.${HOMEPAGE_HEADER_CLASSNAME}`)?.classList.add(HEADER_BACKGROUND_SHOW_CLASSNAME);
           onAnimationFinished();
         } }
       />
