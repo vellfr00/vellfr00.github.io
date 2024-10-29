@@ -2,6 +2,8 @@
   "TITLE": "Contatti",
   "CONTACT_ME_DISCLAIMER": "Compila il modulo sottostante per contattarmi. Sarò lieto di rispondere a tutte le tue domande!",
   "_contact_me_form": {
+    "MESSAGE_SENT_SUCCESS": "Il tuo messaggio è stato inviato con successo!",
+    "MESSAGE_SENT_ERROR": "Ops! Si è verificato un errore durante l'invio del tuo messaggio. Riprova più tardi.",
     "name": {
       "DECORATOR": "Nome",
       "PLACEHOLDER": "Inserisci il tuo nome",

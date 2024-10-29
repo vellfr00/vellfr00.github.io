@@ -2,6 +2,8 @@
   "TITLE" : "Contacts",
   "CONTACT_ME_DISCLAIMER" : "Fill out the form below to contact me. I will be happy to answer all your questions!",
   "_contact_me_form" : {
+    "MESSAGE_SENT_SUCCESS" : "Your message has been sent successfully!",
+    "MESSAGE_SENT_ERROR" : "Ops! An error occurred while sending your message. Please try again later.",
     "name" : {
       "DECORATOR" : "Name",
       "PLACEHOLDER" : "Enter your name",
