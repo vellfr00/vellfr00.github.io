@@ -1,0 +1,46 @@
+#contacts-page {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--website-font-family);
+  font-optical-sizing: auto;
+  font-style: normal;
+  padding: 10% 5% 2% 5%;
+  height: 75vh;
+
+  h1 {
+    color: var(--primary-color);
+  }
+
+  p {
+    font-weight: 300;
+    color: var(--text-color);
+  }
+
+  form {
+    .MuiInput-root, .MuiTextarea-root {
+      font-family: var(--website-font-family);
+      background-color: var(--secondary-color);
+      color: var(--text-color);
+    }
+
+    .MuiInput-root {
+      --Input-focusedThickness: 1px;
+      --Input-focusedHighlight: var(--primary-color);
+    }
+
+    .MuiTextarea-root {
+      --Textarea-focusedThickness: 1px;
+      --Textarea-focusedHighlight: var(--primary-color);
+    }
+
+    .MuiButton-root {
+      font-family: var(--website-font-family);
+      background-color: var(--primary-color);
+      color: var(--text-color);
+    }
+
+    .MuiFormHelperText-root {
+      font-family: var(--website-font-family);
+    }
+  }
+}

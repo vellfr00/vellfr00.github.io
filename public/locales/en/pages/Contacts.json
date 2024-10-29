@@ -1,0 +1,23 @@
+{
+  "TITLE" : "Contacts",
+  "CONTACT_ME_DISCLAIMER" : "Fill out the form below to contact me. I will be happy to answer all your questions!",
+  "_contact_me_form" : {
+    "name" : {
+      "DECORATOR" : "Name",
+      "PLACEHOLDER" : "Enter your name",
+      "REQUIRED" : "Your name cannot be empty"
+    },
+    "email" : {
+      "DECORATOR" : "Email",
+      "PLACEHOLDER" : "Enter your email",
+      "REQUIRED" : "Your email cannot be empty",
+      "INVALID" : "Please enter a valid email address"
+    },
+    "message" : {
+      "DECORATOR" : "Message",
+      "PLACEHOLDER" : "Write your message here",
+      "REQUIRED" : "Your message cannot be empty"
+    },
+    "submit" : "Submit"
+  }
+}

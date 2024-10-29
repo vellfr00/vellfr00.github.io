@@ -7,15 +7,6 @@
 @import url("./discover-more.css");
 @import url("./language-switch.css");
 
-:root {
-  --homepage-font-family: "Fira Code", monospace;
-}
-
-body {
-  margin: 0px;
-  background-color: var(--background-color);
-}
-
 ._homepage-scrollable-section {
   display: flex;
   flex-direction: column;
@@ -24,7 +15,7 @@ body {
 ._homepage-section {
   display: flex;
   flex-direction: column;
-  font-family: var(--homepage-font-family);
+  font-family: var(--website-font-family);
   font-optical-sizing: auto;
   font-style: normal;
   padding: 10% 5% 2% 5%;

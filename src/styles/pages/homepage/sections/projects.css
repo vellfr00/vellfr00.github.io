@@ -72,13 +72,13 @@
     .repository-card {
       flex: 1;
       background-color: var(--secondary-color);
-      font-family: var(--homepage-font-family);
+      font-family: var(--website-font-family);
       white-space: normal;
       overflow-wrap: break-word;
       word-wrap: break-word;
 
       #repository-lastupdate {
-        font-family: var(--homepage-font-family);
+        font-family: var(--website-font-family);
         font-weight: 300;
         background-color: var(--background-color);
         color: var(--text-color);

@@ -1,0 +1,23 @@
+{
+  "TITLE": "Contatti",
+  "CONTACT_ME_DISCLAIMER": "Compila il modulo sottostante per contattarmi. Sarò lieto di rispondere a tutte le tue domande!",
+  "_contact_me_form": {
+    "name": {
+      "DECORATOR": "Nome",
+      "PLACEHOLDER": "Inserisci il tuo nome",
+      "REQUIRED": "Il tuo nome non può essere vuoto"
+    },
+    "email": {
+      "DECORATOR": "Email",
+      "PLACEHOLDER": "Inserisci la tua email",
+      "REQUIRED": "La tua mail non può essere vuota o invalida",
+      "INVALID": "Per favore inserisci un indirizzo email valido"
+    },
+    "message": {
+      "DECORATOR": "Messaggio",
+      "PLACEHOLDER": "Scrivi qui il tuo messaggio",
+      "REQUIRED": "Il tuo messaggio non può essere vuoto"
+    },
+    "submit": "Invia"
+  }
+}
