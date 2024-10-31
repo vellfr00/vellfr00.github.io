@@ -17,6 +17,9 @@
       "PLACEHOLDER": "Scrivi qui il tuo messaggio",
       "REQUIRED": "Il tuo messaggio non può essere vuoto"
     },
-    "submit": "Invia"
+    "submit": {
+      "LABEL": "Invia",
+      "LOADING": "Invio del messaggio in corso..."
+    }
   }
 }
