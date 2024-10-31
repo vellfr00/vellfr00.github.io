@@ -5,18 +5,15 @@
     "MESSAGE_SENT_SUCCESS": "Il tuo messaggio è stato inviato con successo!",
     "MESSAGE_SENT_ERROR": "Ops! Si è verificato un errore durante l'invio del tuo messaggio. Riprova più tardi.",
     "name": {
-      "DECORATOR": "Nome",
       "PLACEHOLDER": "Inserisci il tuo nome",
       "REQUIRED": "Il tuo nome non può essere vuoto"
     },
     "email": {
-      "DECORATOR": "Email",
       "PLACEHOLDER": "Inserisci la tua email",
       "REQUIRED": "La tua mail non può essere vuota o invalida",
       "INVALID": "Per favore inserisci un indirizzo email valido"
     },
     "message": {
-      "DECORATOR": "Messaggio",
       "PLACEHOLDER": "Scrivi qui il tuo messaggio",
       "REQUIRED": "Il tuo messaggio non può essere vuoto"
     },

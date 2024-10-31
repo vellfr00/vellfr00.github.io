@@ -5,18 +5,15 @@
     "MESSAGE_SENT_SUCCESS" : "Your message has been sent successfully!",
     "MESSAGE_SENT_ERROR" : "Ops! An error occurred while sending your message. Please try again later.",
     "name" : {
-      "DECORATOR" : "Name",
       "PLACEHOLDER" : "Enter your name",
       "REQUIRED" : "Your name cannot be empty"
     },
     "email" : {
-      "DECORATOR" : "Email",
       "PLACEHOLDER" : "Enter your email",
       "REQUIRED" : "Your email cannot be empty",
       "INVALID" : "Please enter a valid email address"
     },
     "message" : {
-      "DECORATOR" : "Message",
       "PLACEHOLDER" : "Write your message here",
       "REQUIRED" : "Your message cannot be empty"
     },

@@ -63,6 +63,7 @@ function ContactMeForm() {
   };
 
   const formik = useFormik<ContactMeFormType>({
+    validateOnMount: true,
     initialValues: {
       [NAME_INPUT]: "",
       [EMAIL_INPUT]: "",
@@ -81,7 +82,7 @@ function ContactMeForm() {
         <p>{t("_contact_me_form.MESSAGE_SENT_ERROR")}</p>
       }
 
-      <form onSubmit={formik.handleSubmit}>
+      <form autoComplete="off" onSubmit={formik.handleSubmit}>
         <Stack spacing={2}>
           <FormControl error={formik.touched[NAME_INPUT] && formik.errors[NAME_INPUT] !== undefined}>
             <Input
@@ -92,9 +93,7 @@ function ContactMeForm() {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               variant="plain"
-              startDecorator={
-                <><Person /> {t("_contact_me_form.name.DECORATOR")}</>
-              }
+              startDecorator={ <Person /> }
             />
             { formik.touched[NAME_INPUT]  && formik.errors[NAME_INPUT] !== undefined &&
               <FormHelperText>
@@ -112,9 +111,7 @@ function ContactMeForm() {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               variant="plain"
-              startDecorator={
-                <><Email /> {t("_contact_me_form.email.DECORATOR")}</>
-              }
+              startDecorator={ <Email /> }
             />
             { formik.touched[EMAIL_INPUT] && formik.errors[EMAIL_INPUT] !== undefined &&
               <FormHelperText>
@@ -128,13 +125,11 @@ function ContactMeForm() {
               id={MESSAGE_INPUT}
               name={MESSAGE_INPUT}
               value={formik.values[MESSAGE_INPUT]}
-              placeholder={t("_contact_me_form.message.PLACEHOLDER")}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
+              minRows={5}
               variant="plain"
-              startDecorator={
-                <><Message /> {t("_contact_me_form.message.DECORATOR")}</>
-              }
+              startDecorator={ <><Message /> {t("_contact_me_form.message.PLACEHOLDER")}</> }
             />
             { formik.touched[MESSAGE_INPUT] && formik.errors[MESSAGE_INPUT] !== undefined &&
               <FormHelperText>
@@ -145,7 +140,7 @@ function ContactMeForm() {
           </FormControl>
           <Button 
             type="submit"
-            disabled={Object.keys(formik.errors).length > 0 || formik.isSubmitting}
+            disabled={!formik.isValid || formik.isSubmitting}
           >
             <Send /> {t("_contact_me_form.submit")}
           </Button>

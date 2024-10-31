@@ -17,7 +17,11 @@
   }
 
   form {
-    .MuiInput-root, .MuiTextarea-root {
+    @media (min-width: 768px) {
+      margin: 0 10% 0 0;
+    }
+
+    .MuiInput-root, .MuiTextarea-root, .MuiInput-input, .MuiTextarea-input {
       font-family: var(--website-font-family);
       background-color: var(--secondary-color);
       color: var(--text-color);
@@ -26,17 +30,46 @@
     .MuiInput-root {
       --Input-focusedThickness: 1px;
       --Input-focusedHighlight: var(--primary-color);
+
+      .MuiInput-startDecorator {
+        color: var(--text-color);
+        opacity: 0.5;
+      }
+
+      input::placeholder {
+        color: var(--text-color);
+        font-weight: 300;
+      }
     }
 
     .MuiTextarea-root {
       --Textarea-focusedThickness: 1px;
       --Textarea-focusedHighlight: var(--primary-color);
+
+      .MuiTextarea-startDecorator {
+        margin-left: 0px;
+        color: var(--text-color);
+        font-weight: 300;
+        opacity: 0.6;
+
+        .MuiSvgIcon-root {
+          margin-right: 8px;
+        }
+      }
     }
 
     .MuiButton-root {
       font-family: var(--website-font-family);
       background-color: var(--primary-color);
       color: var(--text-color);
+
+      svg {
+        transform: rotate(-45deg);
+      }
+
+      &:disabled {
+        opacity: 0.5;
+      }
     }
 
     .MuiFormHelperText-root {
