@@ -1,9 +1,11 @@
-import { Email, InfoOutlined, Message, Person, Send } from "@mui/icons-material";
+import { Email, Message, Person, Send } from "@mui/icons-material";
+import ErrorIcon from '@mui/icons-material/Error';
 import { Button, FormControl, FormHelperText, Input, Stack, Textarea } from "@mui/joy";
 import { useFormik } from "formik";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { sendContactMeFormToFormBold } from "../../integration/formbold.integration";
+import OperationStatusFeedback from "../common/OperationStatusFeedback";
 
 function ContactMeForm() {
   const NAME_INPUT = "name";
@@ -76,10 +78,20 @@ function ContactMeForm() {
   return (
     <>
       { formBoldSubmissionState !== undefined && formBoldSubmissionState === true &&
-        <p>{t("_contact_me_form.MESSAGE_SENT_SUCCESS")}</p>
+        <OperationStatusFeedback
+          status="SUCCESS"
+          icon={<Send />}
+          message={t("_contact_me_form.MESSAGE_SENT_SUCCESS")}
+          justifyContent="LEFT"
+        />
       }
       { formBoldSubmissionState !== undefined && formBoldSubmissionState === false &&
-        <p>{t("_contact_me_form.MESSAGE_SENT_ERROR")}</p>
+        <OperationStatusFeedback
+          status="ERROR"
+          icon={<ErrorIcon />}
+          message={t("_contact_me_form.MESSAGE_SENT_ERROR")}
+          justifyContent="LEFT"
+        />
       }
 
       <form autoComplete="off" onSubmit={formik.handleSubmit}>
@@ -96,10 +108,12 @@ function ContactMeForm() {
               startDecorator={ <Person /> }
             />
             { formik.touched[NAME_INPUT]  && formik.errors[NAME_INPUT] !== undefined &&
-              <FormHelperText>
-                <InfoOutlined />
-                {formik.errors[NAME_INPUT]}
-              </FormHelperText>
+              <OperationStatusFeedback
+                status="ERROR"
+                icon={<ErrorIcon />}
+                message={formik.errors[NAME_INPUT]}
+                justifyContent="LEFT"
+              />
             }
           </FormControl>
           <FormControl error={formik.touched[EMAIL_INPUT] && formik.errors[EMAIL_INPUT] !== undefined}>
@@ -114,10 +128,12 @@ function ContactMeForm() {
               startDecorator={ <Email /> }
             />
             { formik.touched[EMAIL_INPUT] && formik.errors[EMAIL_INPUT] !== undefined &&
-              <FormHelperText>
-                <InfoOutlined />
-                {formik.errors[EMAIL_INPUT]}
-              </FormHelperText>
+              <OperationStatusFeedback
+                status="ERROR"
+                icon={<ErrorIcon />}
+                message={formik.errors[EMAIL_INPUT]}
+                justifyContent="LEFT"
+              />
             }
           </FormControl>
           <FormControl error={formik.touched[MESSAGE_INPUT] && formik.errors[MESSAGE_INPUT] !== undefined}>
@@ -127,15 +143,17 @@ function ContactMeForm() {
               value={formik.values[MESSAGE_INPUT]}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
-              minRows={5}
+              minRows={3}
               variant="plain"
               startDecorator={ <><Message /> {t("_contact_me_form.message.PLACEHOLDER")}</> }
             />
             { formik.touched[MESSAGE_INPUT] && formik.errors[MESSAGE_INPUT] !== undefined &&
-              <FormHelperText>
-                <InfoOutlined />
-                {formik.errors[MESSAGE_INPUT]}
-              </FormHelperText>
+              <OperationStatusFeedback
+                status="ERROR"
+                icon={<ErrorIcon />}
+                message={formik.errors[MESSAGE_INPUT]}
+                justifyContent="LEFT"
+              />
             }
           </FormControl>
           <Button 

@@ -7,6 +7,7 @@ import ErrorIcon from '@mui/icons-material/Error';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import OperationStatusFeedback from "../../common/OperationStatusFeedback";
 
 interface ProjectsProps {
   isLanguageChanged: boolean;
@@ -17,8 +18,6 @@ interface ProjectsProps {
 function Projects({ isLanguageChanged, singleSectionClassName, wasSectionViewed }: ProjectsProps) {
   const HOMEPAGE_PROJECTS_CLASSNAME = "homepage-projects";
   const PROJECTS_CONTAINER_ID = "projects-container";
-  const LOADING_PARAGRAPH_CLASSNAME = "error-paragraph";
-  const ERROR_PARAGRAPH_CLASSNAME = "error-paragraph";
   const LAST_REPOSITORIES_UPDATE_ID = "last-repositories-update";
 
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -63,16 +62,20 @@ function Projects({ isLanguageChanged, singleSectionClassName, wasSectionViewed 
       <div id={PROJECTS_CONTAINER_ID}>
         {
           isLoading ? 
-          <p className={LOADING_PARAGRAPH_CLASSNAME}>
-            <CircularProgress />
-            {t("Projects.LOADING")}
-          </p> :
+          <OperationStatusFeedback
+            status="LOADING"
+            icon={<CircularProgress />}
+            message={t("Projects.LOADING")}
+            justifyContent="CENTER"
+          /> :
           ( 
             isError ? 
-            <p className={ERROR_PARAGRAPH_CLASSNAME}>
-              <ErrorIcon />
-              {t("Projects.ERROR_LOADING")}
-            </p> : repositories && 
+            <OperationStatusFeedback
+              status="ERROR"
+              icon={<ErrorIcon />}
+              message={t("Projects.ERROR_LOADING")}
+              justifyContent="CENTER"
+            /> : repositories && 
             <>
               <GitHubRepositoriesCarousel repositories={repositories} />
             </>

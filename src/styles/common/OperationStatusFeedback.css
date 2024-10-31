@@ -1,0 +1,38 @@
+:root {
+  --loading-paragraph-color: var(--secondary-color);
+  --success-paragraph-color: var(--primary-color);
+  --error-paragraph-color: rgb(255, 0, 0);
+}
+
+.feedback-paragraph {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-weight: 500 !important;
+  padding: 0 5px;
+  gap: 5px;
+}
+
+.loading-feedback-paragraph {
+  background-color: var(--loading-paragraph-color);
+}
+
+.error-feedback-paragraph {
+  background-color: var(--error-paragraph-color);
+}
+
+.success-feedback-paragraph {
+  background-color: var(--success-paragraph-color);
+}
+
+.justify-feedback-left {
+  justify-content: flex-start;
+}
+
+.justify-feedback-center {
+  justify-content: center;
+}
+
+.justify-feedback-right {
+  justify-content: flex-end;
+}
