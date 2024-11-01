@@ -1,8 +1,10 @@
 body {
   margin: 0px;
   background-color: var(--background-color);
+}
 
-  &.unset-overflow {
-    overflow: unset;
+#root {
+  &.scroll-overflow {
+    overflow: scroll;
   }
 }

@@ -10,7 +10,7 @@ import { useTranslation } from 'react-i18next';
 import Contacts from './pages/Contacts';
 
 function App() {
-  const APP_UNSET_OVERFLOW_CLASSANAME = 'unset-overflow';
+  const APP_SCROLL_OVERFLOW_CLASSNAME = 'scroll-overflow';
 
   const { i18n } = useTranslation();
 
@@ -27,12 +27,10 @@ function App() {
    * */
   useEffect(() => {
     if(window.location.pathname !== '/') {
-      document.body.classList.add(APP_UNSET_OVERFLOW_CLASSANAME);
-      document.getElementById('root')?.classList.add(APP_UNSET_OVERFLOW_CLASSANAME);
+      document.getElementById('root')?.classList.add(APP_SCROLL_OVERFLOW_CLASSNAME);
     }
     else {
-      document.body.classList.remove(APP_UNSET_OVERFLOW_CLASSANAME);
-      document.getElementById('root')?.classList.remove(APP_UNSET_OVERFLOW_CLASSANAME);
+      document.getElementById('root')?.classList.remove(APP_SCROLL_OVERFLOW_CLASSNAME);
     }
   }, []);
 
