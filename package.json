@@ -39,7 +39,7 @@
     "eject": "react-scripts eject",
     "clear-build": "rd /s /q build",
     "jekyll-new": "docker run -v %cd%/build:/site bretfisher/jekyll new . --force",
-    "jekyll-build": "docker run -v %cd%/build:/site bretfisher/jekyll-serve",
+    "jekyll-build": "docker run -p 4000:4000 -v %cd%/build:/site bretfisher/jekyll-serve",
     "test-local-windows": "npm run clear-build && npm run build && npm run jekyll-new && npm run jekyll-build"
   },
   "eslintConfig": {
