@@ -9,12 +9,16 @@ import {
   Textarea,
 } from "@mui/joy";
 import { useFormik } from "formik";
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { sendContactMeFormToFormBold } from "../../integration/formbold.integration";
 import OperationStatusFeedback from "../common/OperationStatusFeedback";
 
-function ContactMeForm() {
+interface ContactMeFormProps {
+  triggerErrorMessagesLanguageUpdate: boolean;
+}
+
+function ContactMeForm({ triggerErrorMessagesLanguageUpdate }: ContactMeFormProps) {
   const NAME_INPUT = "name";
   const EMAIL_INPUT = "email";
   const MESSAGE_INPUT = "message";
@@ -29,15 +33,15 @@ function ContactMeForm() {
     [MESSAGE_INPUT]?: string;
   }
 
-  const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-
   const [formBoldSubmissionState, setFormBoldSubmissionState] = useState<
     boolean | undefined
   >(undefined);
 
   const { t } = useTranslation("pages/Contacts");
 
-  const validate = (values: ContactMeFormType): ContactMeFormErrorType => {
+  const validate = useCallback((values: ContactMeFormType): ContactMeFormErrorType => {
+    const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
     const errors: ContactMeFormErrorType = {};
 
     if (!values[NAME_INPUT]) {
@@ -55,7 +59,7 @@ function ContactMeForm() {
     }
 
     return errors;
-  };
+  }, [t]);
 
   const submitToFormBold = (values: ContactMeFormType) => {
     sendContactMeFormToFormBold(values)
@@ -83,6 +87,15 @@ function ContactMeForm() {
     validate: validate,
     onSubmit: submitToFormBold,
   });
+
+  /** 
+   * When language change is triggered, update the error messages
+   * by re-validating form with same current values
+   * */
+  useEffect(() => {
+    const errors = validate(formik.values);
+    formik.setErrors(errors);
+  }, [triggerErrorMessagesLanguageUpdate, formik, validate]);
 
   return (
     <form autoComplete="off" onSubmit={formik.handleSubmit}>

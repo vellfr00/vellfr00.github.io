@@ -10,7 +10,7 @@
     },
     "email": {
       "PLACEHOLDER": "Inserisci la tua email",
-      "REQUIRED": "La tua mail non può essere vuota o invalida",
+      "REQUIRED": "La tua mail non può essere vuota",
       "INVALID": "Per favore inserisci un indirizzo email valido"
     },
     "message": {
