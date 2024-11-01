@@ -1,0 +1,26 @@
+:root {
+  --floating-element-color: rgba(255, 255, 255, 0);
+  --floating-element-color-selected: rgba(118, 171, 174, 0.75);
+  --floating-element-color-unselected: rgba(118, 171, 174, 0.25);
+}
+
+.rtf {
+  font-family: var(--website-font-family);
+  margin-right: 5px;
+
+  .rtf--mb {
+    background-color: var(--floating-element-color);
+
+    & > * {
+      transform: none !important;
+    }
+  }
+
+  .rtf--ab {
+    background-color: var(--floating-element-color-unselected);
+
+    &[id^=__selected_floating] {
+      background-color: var(--floating-element-color-selected);
+    }
+  }
+}

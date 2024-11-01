@@ -1,0 +1,10 @@
+{
+  "homepage": {
+    "NAME": "Home",
+    "PATH": "/"
+  },
+  "contacts": {
+    "NAME": "Contatti",
+    "PATH": "/contacts"
+  }
+}

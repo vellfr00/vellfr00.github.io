@@ -2,9 +2,10 @@ import { useTranslation } from "react-i18next";
 import ContactMeForm from "../components/contacts/ContactMeForm";
 import "../styles/pages/contacts/Contacts.css";
 import FloatingLanguageSwitch from "../components/common/FloatingLanguageSwitch";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import DiscoverMoreTypewriter from "../components/common/DiscoverMoreTypewriter";
 import { LinkedIn } from "@mui/icons-material";
+import FloatingElements from "../components/common/FloatingElements";
 
 function Contacts() {
   const CONTACTS_PAGE_ID = "contacts-page";
@@ -36,7 +37,8 @@ function Contacts() {
           onClick={ () => window.open("https://www.linkedin.com/in/francesco-velluto-1629961b0/", "_blank") }
         />
       </div>
-      <FloatingLanguageSwitch
+      <FloatingElements 
+        currentPage="contacts"
         onLanguageChange={() => {
           /** Update flag to trigger language change of form error messages */
           setLanguageChangedFormTrigger(!languageChangedFormTrigger);

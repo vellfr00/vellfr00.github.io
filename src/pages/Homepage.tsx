@@ -6,6 +6,8 @@ import FloatingLanguageSwitch from '../components/common/FloatingLanguageSwitch'
 import WhoAmI from '../components/homepage/sections/WhoAmI';
 import '../styles/pages/homepage/Homepage.css';
 import Projects from '../components/homepage/sections/Projects';
+import FloatingMenu from '../components/common/FloatingMenu';
+import FloatingElements from '../components/common/FloatingElements';
 
 function Homepage() {
   const HOMEPAGE_SCROLL_CONTAINER_CLASSNAME = 'ms-container';
@@ -77,7 +79,14 @@ function Homepage() {
           </ScrollableSection>
         }
       </MegaScroll>
-      { isHeaderAnimationFinished && <FloatingLanguageSwitch onLanguageChange={ () => setIsLanguageChanged(true) } /> }
+      { isHeaderAnimationFinished && 
+        <>
+          <FloatingElements
+            currentPage='homepage'
+            onLanguageChange={ () => setIsLanguageChanged(true) }
+          />
+        </>
+      }
     </>
   )
 }
