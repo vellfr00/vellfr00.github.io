@@ -10,8 +10,12 @@ The branch `gh-pages` is used to deploy the website.
 ## Local Development with Docker
 
 Website can be run locally in a Jekyll container that replicates the GitHub Pages environment.
+Simply run:
+```bash
+npm run test-local-windows
+```
 
-Steps:
+Steps to perform to run manually the website locally:
 1. Clear the local `build` directory
 2. Make sure to have in local `public/api__cache` folder the latest data from the APIs
 3. Build the React app with command:
