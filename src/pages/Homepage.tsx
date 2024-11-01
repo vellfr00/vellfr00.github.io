@@ -2,11 +2,9 @@ import Header from '../components/homepage/sections/Header';
 import MegaScroll from "react-mega-scroll";
 import { useEffect, useState } from 'react';
 import ScrollableSection from '../components/homepage/ScrollableSection';
-import FloatingLanguageSwitch from '../components/common/FloatingLanguageSwitch';
 import WhoAmI from '../components/homepage/sections/WhoAmI';
 import '../styles/pages/homepage/Homepage.css';
 import Projects from '../components/homepage/sections/Projects';
-import FloatingMenu from '../components/common/FloatingMenu';
 import FloatingElements from '../components/common/FloatingElements';
 
 function Homepage() {
