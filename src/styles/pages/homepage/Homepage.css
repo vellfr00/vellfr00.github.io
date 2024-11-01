@@ -1,9 +1,6 @@
-@import url("./sections/header.css");
-@import url("./sections/whoami.css");
-@import url("./sections/projects.css");
-
-@import url("./discover-more.css");
-@import url("./language-switch.css");
+@import url("./sections/Header.css");
+@import url("./sections/WhoAmI.css");
+@import url("./sections/Projects.css");
 
 ._homepage-scrollable-section {
   display: flex;

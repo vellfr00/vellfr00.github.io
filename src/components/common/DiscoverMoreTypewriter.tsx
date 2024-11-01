@@ -1,5 +1,6 @@
 import Typewriter, { TypewriterClass } from "typewriter-effect";
 import { useTranslation } from "react-i18next";
+import '../../styles/common/components/DiscoverMoreTypewriter.css';
 
 interface DiscoverMoreTypewriterProps {
   section: string;

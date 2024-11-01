@@ -1,4 +1,4 @@
-import '../../styles/common/OperationStatusFeedback.css'
+import '../../styles/common/components/OperationStatusFeedback.css';
 
 /** Enum possible async operation status */
 type AsyncOperationStatus = "LOADING" | "SUCCESS" | "ERROR";

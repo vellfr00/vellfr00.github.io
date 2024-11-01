@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Fab, Action } from "react-tiny-fab";
 import Flag from 'react-world-flags'
+import '../../styles/common/components/FloatingLanguageSwitch.css';
 
 interface FloatingLanguageSwitchProps {
   onLanguageChange: () => void;

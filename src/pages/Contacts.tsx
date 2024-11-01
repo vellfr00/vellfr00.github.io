@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import ContactMeForm from "../components/contacts/ContactMeForm";
 import "../styles/pages/contacts/Contacts.css";
-import FloatingLanguageSwitch from "../components/homepage/FloatingLanguageSwitch";
+import FloatingLanguageSwitch from "../components/common/FloatingLanguageSwitch";
 import { useState } from "react";
 
 function Contacts() {

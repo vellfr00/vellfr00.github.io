@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import DiscoverMoreTypewriter from "../DiscoverMoreTypewriter";
+import DiscoverMoreTypewriter from "../../common/DiscoverMoreTypewriter";
 
 interface WhoAmIProps {
   isLanguageChanged: boolean;
