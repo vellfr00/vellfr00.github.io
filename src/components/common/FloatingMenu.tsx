@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Action, Fab } from "react-tiny-fab";
 import { FloatingElement } from "./FloatingElements";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 type Page = "homepage" | "contacts";
 
@@ -21,6 +22,7 @@ function FloatingMenu({ currentPage, closeAllOtherFloatingMenus, triggerClose }:
   };
 
   const { t } = useTranslation("Menu");
+  const navigate = useNavigate();
 
   const isOpen = () => {
     const floatingLanguageSwitch = document.getElementById(FLOATING_MENU_ID);
@@ -63,13 +65,13 @@ function FloatingMenu({ currentPage, closeAllOtherFloatingMenus, triggerClose }:
         id={currentPage === "homepage" ? `__selected_floating__menu-page${currentPage}` : undefined}
         text={t("homepage.NAME")}
         children={pagesIconsMap["home"]}
-        onClick={() => (window.location.href = t("homepage.PATH"))}
+        onClick={() => navigate(t("homepage.PATH"))}
       />
       <Action
         id={currentPage === "contacts" ? `__selected_floating__menu-page${currentPage}` : undefined}
         text={t("contacts.NAME")}
         children={pagesIconsMap["contacts"]}
-        onClick={() => (window.location.href = t("contacts.PATH"))}
+        onClick={() => navigate(t("contacts.PATH"))}
       />
     </Fab>
   );
