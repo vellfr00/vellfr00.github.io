@@ -3,21 +3,27 @@ import { useTranslation } from "react-i18next";
 import '../../styles/common/components/DiscoverMoreTypewriter.css';
 
 interface DiscoverMoreTypewriterProps {
-  section: string;
+  localePage: string;
+  discoverMoreKey: string;
   isLanguageChanged: boolean;
   onInitCompleted: (discoverMoreTypewriter: TypewriterClass) => void;
   onAnimationFinished: () => void;
+  icon?: JSX.Element;
+  onClick?: () => void;
 }
 
 function DiscoverMoreTypewriter({
-  section,
+  localePage,
+  discoverMoreKey,
   isLanguageChanged,
   onInitCompleted,
-  onAnimationFinished
+  onAnimationFinished,
+  icon,
+  onClick
 }: DiscoverMoreTypewriterProps) {
-  const DISCOVER_MORE_TYPEWRITER_SPAN_ID = `discover-more-typewriter__${section}`;
+  const DISCOVER_MORE_TYPEWRITER_SPAN_ID = `discover-more-typewriter__${discoverMoreKey}`;
 
-  const { t } = useTranslation("pages/Homepage");
+  const { t } = useTranslation(localePage);
 
   const setCursorDisplay = (display: string): void => {
     const cursor = document.querySelector<HTMLElement>(
@@ -27,8 +33,9 @@ function DiscoverMoreTypewriter({
   };
 
   return (
-    <span id={DISCOVER_MORE_TYPEWRITER_SPAN_ID}>
-      {isLanguageChanged ? (t(`${section}.DISCOVER_MORE`)) : (
+    <span id={DISCOVER_MORE_TYPEWRITER_SPAN_ID} onClick={onClick}>
+      {icon}
+      {isLanguageChanged ? (t(`${discoverMoreKey}.DISCOVER_MORE`)) : (
         <Typewriter
           options={{ delay: 25 }}
           onInit={(_discoverMoreTypewriter) => {
@@ -37,7 +44,7 @@ function DiscoverMoreTypewriter({
             _discoverMoreTypewriter
               .callFunction(() => setCursorDisplay("inline"))
               .pauseFor(300)
-              .typeString(t(`${section}.DISCOVER_MORE`))
+              .typeString(t(`${discoverMoreKey}.DISCOVER_MORE`))
               .callFunction(() => setCursorDisplay("none"))
               .stop()
               .callFunction(() => onAnimationFinished());

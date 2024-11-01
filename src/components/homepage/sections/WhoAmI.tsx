@@ -20,7 +20,8 @@ function WhoAmI({ isLanguageChanged, singleSectionClassName, wasSectionViewed }:
       <p>{t("WhoAmI.FUTURE_GOALS")}</p>
       { wasSectionViewed && 
         <DiscoverMoreTypewriter
-          section="WhoAmI"
+          localePage="pages/Homepage"
+          discoverMoreKey="WhoAmI"
           isLanguageChanged={isLanguageChanged}
           onInitCompleted={(_discoverMoreTypewriter) => {
             _discoverMoreTypewriter.start();

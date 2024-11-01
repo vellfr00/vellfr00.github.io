@@ -5,7 +5,7 @@
   font-optical-sizing: auto;
   font-style: normal;
   padding: 10% 5% 2% 5%;
-  height: 75vh;
+  height: 100%;
 
   h1 {
     color: var(--primary-color);
@@ -17,7 +17,8 @@
   }
 
   form {
-    padding: 0 0 5% 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
     @media (min-width: 768px) {
       margin: 0 10% 0 0;
     }
@@ -82,5 +83,14 @@
         --CircularProgress-progressColor: var(--primary-color);
       }
     }
+  }
+
+  #discover-more-typewriter__LinkedIn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
   }
 }

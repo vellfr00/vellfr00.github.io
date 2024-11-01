@@ -101,7 +101,8 @@ function Header({ singleSectionClassName, onAnimationFinished, isLanguageChanged
         }
       </h3>
       <DiscoverMoreTypewriter
-        section = 'Header'
+        localePage = 'pages/Homepage'
+        discoverMoreKey = 'Header'
         isLanguageChanged = { isLanguageChanged }
         onInitCompleted={ (_discoverMoreTypewriter) => {
           discoverMoreTypewriter = _discoverMoreTypewriter;
