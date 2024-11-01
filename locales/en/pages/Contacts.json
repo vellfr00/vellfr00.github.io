@@ -1,0 +1,26 @@
+{
+  "TITLE" : "Contacts",
+  "CONTACT_ME_DISCLAIMER" : "Fill out the form below to contact me. I will be happy to answer all your questions!",
+  "_contact_me_form" : {
+    "MESSAGE_SENT_SUCCESS" : "Your message has been sent successfully!",
+    "MESSAGE_SENT_ERROR" : "Ops! An error occurred while sending your message. Please try again later.",
+    "name" : {
+      "PLACEHOLDER" : "Enter your name",
+      "REQUIRED" : "Your name cannot be empty"
+    },
+    "email" : {
+      "PLACEHOLDER" : "Enter your email",
+      "REQUIRED" : "Your email cannot be empty",
+      "INVALID" : "Please enter a valid email address"
+    },
+    "message" : {
+      "PLACEHOLDER" : "Write your message here",
+      "REQUIRED" : "Your message cannot be empty"
+    },
+    "submit" : {
+      "LABEL" : "Send",
+      "LOADING" : "Sending message..."
+    }
+  },
+  "LinkedIn" : { "DISCOVER_MORE" : "You can also reach me on LinkedIn by clicking here!" }
+}

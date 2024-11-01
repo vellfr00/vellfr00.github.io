@@ -1,0 +1,26 @@
+{
+  "TITLE": "Contatti",
+  "CONTACT_ME_DISCLAIMER": "Compila il modulo sottostante per contattarmi. Sarò lieto di rispondere a tutte le tue domande!",
+  "_contact_me_form": {
+    "MESSAGE_SENT_SUCCESS": "Il tuo messaggio è stato inviato con successo!",
+    "MESSAGE_SENT_ERROR": "Ops! Si è verificato un errore durante l'invio del tuo messaggio. Riprova più tardi.",
+    "name": {
+      "PLACEHOLDER": "Inserisci il tuo nome",
+      "REQUIRED": "Il tuo nome non può essere vuoto"
+    },
+    "email": {
+      "PLACEHOLDER": "Inserisci la tua email",
+      "REQUIRED": "La tua mail non può essere vuota",
+      "INVALID": "Per favore inserisci un indirizzo email valido"
+    },
+    "message": {
+      "PLACEHOLDER": "Scrivi qui il tuo messaggio",
+      "REQUIRED": "Il tuo messaggio non può essere vuoto"
+    },
+    "submit": {
+      "LABEL": "Invia",
+      "LOADING": "Invio del messaggio in corso..."
+    }
+  },
+  "LinkedIn": { "DISCOVER_MORE": "Puoi anche raggiungermi su LinkedIn cliccando qui!" }
+}
