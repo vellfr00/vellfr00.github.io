@@ -42,9 +42,23 @@ function FloatingMenu({ currentPage, closeAllOtherFloatingMenus, triggerClose }:
   }
 
   /**
-   * Close the floating language switch when the trigger changes
+   * Close the floating menu when the trigger changes
    * */
   useEffect(() => close(), [triggerClose]);
+  /**
+   * Close the floating menu when the user clicks outside of it
+   * */
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const floatingMenu = document.getElementById(FLOATING_MENU_ID);
+      if(floatingMenu && !floatingMenu.contains(event.target as Node)) {
+        close();
+      }
+    }
+    
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   return (
     <Fab

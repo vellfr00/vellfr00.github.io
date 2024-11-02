@@ -43,6 +43,20 @@ function FloatingLanguageSwitch({ onLanguageChange, closeAllOtherFloatingMenus, 
    * Close the floating language switch when the trigger changes
    * */
   useEffect(() => close(), [triggerClose]);
+  /**
+   * Close the floating language switch when the user clicks outside of it
+   * */
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const floatingLanguageSwitch = document.getElementById(FLOATING_LANGUAGE_SWITCH_ID);
+      if(floatingLanguageSwitch && !floatingLanguageSwitch.contains(event.target as Node)) {
+        close();
+      }
+    }
+    
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   return (
     <Fab
