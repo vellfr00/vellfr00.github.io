@@ -1,4 +1,4 @@
-import { HashRouter, Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import Homepage from './pages/Homepage';
 
 import './styles/common/website.css';
@@ -13,6 +13,7 @@ function App() {
   const APP_SCROLL_OVERFLOW_CLASSNAME = 'scroll-overflow';
 
   const { i18n } = useTranslation();
+  const location = useLocation();
 
   /**
    * Update the HTML lang attribute to the current language dynamically.
@@ -26,21 +27,19 @@ function App() {
    * from the react-mega-scroll library with overflow hidden CSS property.
    * */
   useEffect(() => {
-    if(window.location.pathname !== '/') {
+    if(location.pathname !== '/') {
       document.getElementById('root')?.classList.add(APP_SCROLL_OVERFLOW_CLASSNAME);
     }
     else {
       document.getElementById('root')?.classList.remove(APP_SCROLL_OVERFLOW_CLASSNAME);
     }
-  }, []);
+  }, [location]);
 
   return (
-    <HashRouter>
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/contacts" element={<Contacts />} />
-      </Routes>
-    </HashRouter>
+    <Routes>
+      <Route path="/" element={<Homepage />} />
+      <Route path="/contacts" element={<Contacts />} />
+    </Routes>
   );
 }
 

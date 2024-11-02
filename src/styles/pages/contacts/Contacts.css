@@ -5,7 +5,7 @@
   font-optical-sizing: auto;
   font-style: normal;
   padding: 10% 5% 2% 5%;
-  height: 100%;
+  height: -webkit-fill-available;
 
   h1 {
     color: var(--primary-color);

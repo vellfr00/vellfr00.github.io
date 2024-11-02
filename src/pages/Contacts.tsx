@@ -31,6 +31,7 @@ function Contacts() {
           onInitCompleted={(discoverMoreTypewriter) =>
             discoverMoreTypewriter.start()
           }
+          skipAnimation={false}
           onAnimationFinished={() => {}}
           icon={<LinkedIn />}
           onClick={ () => window.open("https://www.linkedin.com/in/francesco-velluto-1629961b0/", "_blank") }
