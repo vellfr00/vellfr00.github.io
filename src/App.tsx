@@ -1,4 +1,5 @@
 import { Route, Routes, useLocation } from 'react-router-dom';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import Homepage from './pages/Homepage';
 
 import './styles/common/website.css';
@@ -36,10 +37,18 @@ function App() {
   }, [location]);
 
   return (
-    <Routes>
-      <Route path="/" element={<Homepage />} />
-      <Route path="/contacts" element={<Contacts />} />
-    </Routes>
+    <TransitionGroup component={null}>
+      <CSSTransition
+        key={location.key}
+        classNames="fade"
+        timeout={300}
+      >
+        <Routes location={location}>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/contacts" element={<Contacts />} />
+        </Routes>
+      </CSSTransition>
+    </TransitionGroup>
   );
 }
 
