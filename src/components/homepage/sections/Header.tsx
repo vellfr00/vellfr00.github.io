@@ -35,7 +35,7 @@ function Header({ singleSectionClassName, onAnimationFinished, isLanguageChanged
   useEffect(() => {
     if (skipHeaderAnimation)
       onAnimationFinished();
-  }, [skipHeaderAnimation]);
+  }, [skipHeaderAnimation, onAnimationFinished]);
 
   /**
   * When language changes, animation will already be completed but strings are not replaced.
