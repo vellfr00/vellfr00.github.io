@@ -10,6 +10,7 @@ interface DiscoverMoreTypewriterProps {
   onAnimationFinished: () => void;
   icon?: JSX.Element;
   onClick?: () => void;
+  skipAnimation?: boolean;
 }
 
 function DiscoverMoreTypewriter({
@@ -19,7 +20,8 @@ function DiscoverMoreTypewriter({
   onInitCompleted,
   onAnimationFinished,
   icon,
-  onClick
+  onClick,
+  skipAnimation
 }: DiscoverMoreTypewriterProps) {
   const DISCOVER_MORE_TYPEWRITER_SPAN_ID = `discover-more-typewriter__${discoverMoreKey}`;
 
@@ -35,7 +37,7 @@ function DiscoverMoreTypewriter({
   return (
     <span id={DISCOVER_MORE_TYPEWRITER_SPAN_ID} onClick={onClick}>
       {icon}
-      {isLanguageChanged ? (t(`${discoverMoreKey}.DISCOVER_MORE`)) : (
+      { (isLanguageChanged || skipAnimation) ? (t(`${discoverMoreKey}.DISCOVER_MORE`)) : (
         <Typewriter
           options={{ delay: 25 }}
           onInit={(_discoverMoreTypewriter) => {

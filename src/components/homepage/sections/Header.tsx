@@ -1,14 +1,16 @@
 import Typewriter, { TypewriterClass } from 'typewriter-effect';
 import { useTranslation } from 'react-i18next';
 import DiscoverMoreTypewriter from '../../common/DiscoverMoreTypewriter';
+import { useEffect } from 'react';
 
 interface HeaderProps {
   singleSectionClassName: string;
   onAnimationFinished: () => void;
   isLanguageChanged: boolean;
+  skipHeaderAnimation: boolean;
 }
 
-function Header({ singleSectionClassName, onAnimationFinished, isLanguageChanged }: HeaderProps) {
+function Header({ singleSectionClassName, onAnimationFinished, isLanguageChanged, skipHeaderAnimation }: HeaderProps) {
   const HOMEPAGE_HEADER_CLASSNAME = 'homepage-header';
   const NAME_TYPEWRITER_H1_ID = 'name-typewriter';
   const PROFESSION_TYPEWRITER_H2_ID = 'profession-typewriter';
@@ -28,6 +30,14 @@ function Header({ singleSectionClassName, onAnimationFinished, isLanguageChanged
   }
 
   /**
+   * If the header animation is skipped, call the onAnimationFinished function.
+   * */
+  useEffect(() => {
+    if (skipHeaderAnimation)
+      onAnimationFinished();
+  }, [skipHeaderAnimation]);
+
+  /**
   * When language changes, animation will already be completed but strings are not replaced.
   * Detecting language change will substitute typewriters with simple text.
   * By doing this, the correct translation will be displayed.
@@ -35,7 +45,7 @@ function Header({ singleSectionClassName, onAnimationFinished, isLanguageChanged
   return (
     <div className={`${singleSectionClassName} ${HOMEPAGE_HEADER_CLASSNAME}`}>
       <h1 id={NAME_TYPEWRITER_H1_ID}>
-        { isLanguageChanged ? t('Header.NAME') : 
+        { (skipHeaderAnimation || isLanguageChanged) ? t('Header.NAME') : 
           <Typewriter
             options={{ delay: 50 }}
             onInit={(_nameTypewriter) => {
@@ -53,7 +63,7 @@ function Header({ singleSectionClassName, onAnimationFinished, isLanguageChanged
         }
       </h1>
       <h2 id={PROFESSION_TYPEWRITER_H2_ID}>
-        { isLanguageChanged ? t('Header.PROFESSION') : 
+        { (skipHeaderAnimation || isLanguageChanged) ? t('Header.PROFESSION') : 
           <Typewriter
             options={{ delay: 50 }}
             onInit={(_professionTypewriter) => {
@@ -77,7 +87,7 @@ function Header({ singleSectionClassName, onAnimationFinished, isLanguageChanged
         }
       </h2>
       <h3 id={GREETINGS_TYPEWRITER_H3_ID}>
-        { isLanguageChanged ? t('Header.GREETINGS') : 
+        { (skipHeaderAnimation || isLanguageChanged) ? t('Header.GREETINGS') : 
           <Typewriter
             options={{ delay: 50 }}
             onInit={(_greetingsTypewriter) => {
@@ -108,6 +118,7 @@ function Header({ singleSectionClassName, onAnimationFinished, isLanguageChanged
           discoverMoreTypewriter = _discoverMoreTypewriter;
           nameTypewriter?.start();
         } }
+        skipAnimation = { skipHeaderAnimation }
         onAnimationFinished = { () => {
           onAnimationFinished();
         } }
