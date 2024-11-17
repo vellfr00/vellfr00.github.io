@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { GitHubRepositoryInformation, getUserPublicRepositories, getUserPublicRepositoriesLastModified } from "../../../integration/github.integration";
 import { useEffect, useState } from "react";
-import { Card, CardContent, Chip, CircularProgress } from "@mui/joy";
+import { Card, CardContent, Chip, CircularProgress, Divider } from "@mui/joy";
 import Slider from "react-slick";
 import ErrorIcon from '@mui/icons-material/Error';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
@@ -122,6 +122,13 @@ function GitHubRepositoryCard({ repository }: { repository: GitHubRepositoryInfo
   const REPOSITORY_LASTUPDATE_ID = "repository-lastupdate";
   const REPOSITORY_NAME_ID = "repository-name";
   const REPOSITORY_DESCRIPTION_ID = "repository-description";
+  const REPOSITORY_MAIN_LANGUAGE_ID = "repository-main-language";
+
+  const LANGUAGES_ICONS_URLS_MAP: { [key: string]: string } = {
+    "TypeScript": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg",
+    "JavaScript": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg",
+    "Rust": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rust/rust-original.svg"
+  }; 
 
   const { t } = useTranslation("pages/Homepage");
 
@@ -138,6 +145,11 @@ function GitHubRepositoryCard({ repository }: { repository: GitHubRepositoryInfo
         </Chip>
         <h3 id={REPOSITORY_NAME_ID}>{repository.fullName}</h3>
         <p id={REPOSITORY_DESCRIPTION_ID}>{repository.description ?? t("Projects.NO_DESCRIPTION_AVAILABLE")}</p>
+        <Divider />
+        <Chip id={REPOSITORY_MAIN_LANGUAGE_ID}>
+          <img src={LANGUAGES_ICONS_URLS_MAP[repository.mainLanguage]} />
+          {t('Projects.MAIN_LANGUAGE', { language: repository.mainLanguage })}
+        </Chip>
       </CardContent>
     </Card>
   );

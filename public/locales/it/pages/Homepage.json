@@ -20,6 +20,7 @@
     "LOADING": "Caricamento dei progetti da GitHub...",
     "ERROR_LOADING": "Ops! Sembra che ci sia stato un errore durante il caricamento dei progetti. Riprova più tardi.",
     "NO_DESCRIPTION_AVAILABLE": "Ops! Nessuna descrizione disponibile per questo progetto.",
-    "LAST_DATA_UPDATE": "I dati mostrati in questa sezione sono stati aggiornati per l'ultima volta il {{repositoriesLastUpdate}}"
+    "LAST_DATA_UPDATE": "I dati mostrati in questa sezione sono stati aggiornati per l'ultima volta il {{repositoriesLastUpdate}}",
+    "MAIN_LANGUAGE": "Sviluppato principalmente in {{language}}"
   }
 }

@@ -5,6 +5,7 @@ export type GitHubRepositoryInformation = {
   url: string;
   lastUpdate: Date;
   description?: string;
+  mainLanguage: string;
 };
 
 export async function getUserPublicRepositories(user: string): Promise<GitHubRepositoryInformation[] | null> {
@@ -17,7 +18,8 @@ export async function getUserPublicRepositories(user: string): Promise<GitHubRep
         fullName: repository.full_name,
         url: repository.html_url,
         lastUpdate: new Date(repository.updated_at),
-        description: repository.description
+        description: repository.description,
+        mainLanguage: repository.language
       };
     });
 

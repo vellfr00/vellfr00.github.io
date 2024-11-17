@@ -78,6 +78,35 @@
         font-size: 13px;
         font-weight: 300;
       }
+
+      .MuiDivider-root {
+        margin-top: auto;
+        margin-bottom: 16px;
+      }
+
+      #repository-main-language {
+        font-family: var(--website-font-family);
+        font-weight: 300;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        height: fit-content;
+
+        span {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          vertical-align: middle;
+          gap: 5px;
+          padding: 5px;
+          font-size: 13px;
+          font-weight: 300;
+
+          img {
+            width: 17px;
+            height: 17px;
+          }
+        }
+      }
     }
 
     .slick-dots button::before{
