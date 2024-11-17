@@ -147,7 +147,7 @@ function GitHubRepositoryCard({ repository }: { repository: GitHubRepositoryInfo
         <p id={REPOSITORY_DESCRIPTION_ID}>{repository.description ?? t("Projects.NO_DESCRIPTION_AVAILABLE")}</p>
         <Divider />
         <Chip id={REPOSITORY_MAIN_LANGUAGE_ID}>
-          <img src={LANGUAGES_ICONS_URLS_MAP[repository.mainLanguage]} />
+          <img src={LANGUAGES_ICONS_URLS_MAP[repository.mainLanguage]} alt={repository.mainLanguage}/>
           {t('Projects.MAIN_LANGUAGE', { language: repository.mainLanguage })}
         </Chip>
       </CardContent>
