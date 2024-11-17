@@ -6,7 +6,7 @@ on:
 
 permissions:
   contents: write
-	
+
 jobs:
   build-refresh-deploy:
     runs-on: ubuntu-latest
