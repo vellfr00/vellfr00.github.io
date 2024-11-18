@@ -50,7 +50,7 @@
       overflow-wrap: break-word;
       word-wrap: break-word;
 
-      #repository-lastupdate {
+      .repository-lastupdate {
         font-family: var(--website-font-family);
         font-weight: 300;
         background-color: var(--background-color);
@@ -68,15 +68,22 @@
         }
       }
 
-      #repository-name {
+      .repository-name {
         color: var(--primary-color);
         font-weight: 500;
       }
 
-      #repository-description {
+      .repository-description {
         color: var(--text-color);
         font-size: 13px;
         font-weight: 300;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 3;
+        line-height: 1.5;
+        max-height: calc(1.5em * 3);
       }
 
       .MuiDivider-root {
@@ -84,7 +91,7 @@
         margin-bottom: 16px;
       }
 
-      #repository-main-language {
+      .repository-main-language {
         font-family: var(--website-font-family);
         font-weight: 300;
         background-color: var(--background-color);
@@ -104,6 +111,13 @@
           img {
             width: 17px;
             height: 17px;
+          }
+
+          p {
+            display: inline;
+            margin: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
           }
         }
       }

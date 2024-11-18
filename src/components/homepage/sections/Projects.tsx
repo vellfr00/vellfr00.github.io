@@ -119,10 +119,10 @@ function GitHubRepositoriesCarousel({ repositories }: { repositories: GitHubRepo
 
 function GitHubRepositoryCard({ repository }: { repository: GitHubRepositoryInformation }) {
   const REPOSITORY_CARD_CLASSNAME = "repository-card";
-  const REPOSITORY_LASTUPDATE_ID = "repository-lastupdate";
-  const REPOSITORY_NAME_ID = "repository-name";
-  const REPOSITORY_DESCRIPTION_ID = "repository-description";
-  const REPOSITORY_MAIN_LANGUAGE_ID = "repository-main-language";
+  const REPOSITORY_LASTUPDATE_CLASSNAME = "repository-lastupdate";
+  const REPOSITORY_NAME_CLASSNAME = "repository-name";
+  const REPOSITORY_DESCRIPTION_CLASSNAME = "repository-description";
+  const REPOSITORY_MAIN_LANGUAGE_CLASSNAME = "repository-main-language";
 
   const LANGUAGES_ICONS_URLS_MAP: { [key: string]: string } = {
     "TypeScript": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg",
@@ -139,16 +139,16 @@ function GitHubRepositoryCard({ repository }: { repository: GitHubRepositoryInfo
       onClick={() => window.open(repository.url, "_blank")}
     >
       <CardContent>
-        <Chip id={REPOSITORY_LASTUPDATE_ID}>
+        <Chip className={REPOSITORY_LASTUPDATE_CLASSNAME}>
           <CalendarMonthIcon fontSize="inherit" />
           {repository.lastUpdate.toLocaleDateString(t('Projects._date_locale'))}
         </Chip>
-        <h3 id={REPOSITORY_NAME_ID}>{repository.fullName}</h3>
-        <p id={REPOSITORY_DESCRIPTION_ID}>{repository.description ?? t("Projects.NO_DESCRIPTION_AVAILABLE")}</p>
+        <h3 className={REPOSITORY_NAME_CLASSNAME}>{repository.fullName}</h3>
+        <p className={REPOSITORY_DESCRIPTION_CLASSNAME}>{repository.description ?? t("Projects.NO_DESCRIPTION_AVAILABLE")}</p>
         <Divider />
-        <Chip id={REPOSITORY_MAIN_LANGUAGE_ID}>
+        <Chip className={REPOSITORY_MAIN_LANGUAGE_CLASSNAME}>
           <img src={LANGUAGES_ICONS_URLS_MAP[repository.mainLanguage]} alt={repository.mainLanguage}/>
-          {t('Projects.MAIN_LANGUAGE', { language: repository.mainLanguage })}
+          <p>{t('Projects.MAIN_LANGUAGE', { language: repository.mainLanguage })}</p>
         </Chip>
       </CardContent>
     </Card>
