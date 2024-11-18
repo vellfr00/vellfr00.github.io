@@ -8,7 +8,7 @@ permissions:
   contents: write
 
 jobs:
-  build-refresh-deploy:
+  refresh-api-cache:
     runs-on: ubuntu-latest
 
     steps:
@@ -31,7 +31,7 @@ jobs:
       run: rm -rf fetch-api-data-action
 
     - name: List complete build directory
-      run: ls -R build
+      run: ls -R .
 
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4
