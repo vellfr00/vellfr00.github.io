@@ -77,6 +77,13 @@
         color: var(--text-color);
         font-size: 13px;
         font-weight: 300;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 3;
+        line-height: 1.5;
+        max-height: calc(1.5em * 3);
       }
 
       .MuiDivider-root {
