@@ -50,7 +50,7 @@
       overflow-wrap: break-word;
       word-wrap: break-word;
 
-      #repository-lastupdate {
+      .repository-lastupdate {
         font-family: var(--website-font-family);
         font-weight: 300;
         background-color: var(--background-color);
@@ -68,12 +68,12 @@
         }
       }
 
-      #repository-name {
+      .repository-name {
         color: var(--primary-color);
         font-weight: 500;
       }
 
-      #repository-description {
+      .repository-description {
         color: var(--text-color);
         font-size: 13px;
         font-weight: 300;
@@ -84,7 +84,7 @@
         margin-bottom: 16px;
       }
 
-      #repository-main-language {
+      .repository-main-language {
         font-family: var(--website-font-family);
         font-weight: 300;
         background-color: var(--background-color);
