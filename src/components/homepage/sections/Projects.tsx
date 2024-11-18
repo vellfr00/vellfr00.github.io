@@ -148,7 +148,7 @@ function GitHubRepositoryCard({ repository }: { repository: GitHubRepositoryInfo
         <Divider />
         <Chip id={REPOSITORY_MAIN_LANGUAGE_ID}>
           <img src={LANGUAGES_ICONS_URLS_MAP[repository.mainLanguage]} alt={repository.mainLanguage}/>
-          {t('Projects.MAIN_LANGUAGE', { language: repository.mainLanguage })}
+          <p>{t('Projects.MAIN_LANGUAGE', { language: repository.mainLanguage })}</p>
         </Chip>
       </CardContent>
     </Card>

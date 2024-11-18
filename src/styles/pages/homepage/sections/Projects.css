@@ -105,6 +105,13 @@
             width: 17px;
             height: 17px;
           }
+
+          p {
+            display: inline;
+            margin: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
         }
       }
     }
