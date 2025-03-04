@@ -39,4 +39,4 @@ jobs:
         branch: gh-pages
         folder: .
         clean: false
-        commit-message: 'Daily refresh of API cache'
+        commit-message: 'Weekly refresh of API cache'
