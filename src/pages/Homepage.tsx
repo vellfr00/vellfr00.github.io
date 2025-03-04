@@ -6,6 +6,7 @@ import WhoAmI from '../components/homepage/sections/WhoAmI';
 import '../styles/pages/homepage/Homepage.css';
 import Projects from '../components/homepage/sections/Projects';
 import FloatingElements from '../components/common/FloatingElements';
+import { analytics__trackPageView } from '../integration/googleanalytics.integration';
 
 function Homepage() {
   const HOMEPAGE_SCROLL_CONTAINER_CLASSNAME = 'ms-container';
@@ -23,6 +24,7 @@ function Homepage() {
   /**
    * On load of the homepage, check if the header animation has been viewed in this session.
    * If it has, skip the animation - else set the session storage item to false.
+   * Additionally, track the view of the homepage in Google Analytics.
    * */
   useEffect(() => {
     if (sessionStorage.getItem(SESSION_HOMEPAGE_HEADER_ANIMATION_VIEWED_KEY) === 'true') {
@@ -30,6 +32,8 @@ function Homepage() {
     } else {
       sessionStorage.setItem(SESSION_HOMEPAGE_HEADER_ANIMATION_VIEWED_KEY, 'false');
     }
+
+    analytics__trackPageView("/", "Homepage");
   }, []);
 
   /**

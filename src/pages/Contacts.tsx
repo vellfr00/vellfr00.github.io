@@ -1,10 +1,11 @@
 import { useTranslation } from "react-i18next";
 import ContactMeForm from "../components/contacts/ContactMeForm";
 import "../styles/pages/contacts/Contacts.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DiscoverMoreTypewriter from "../components/common/DiscoverMoreTypewriter";
 import { LinkedIn } from "@mui/icons-material";
 import FloatingElements from "../components/common/FloatingElements";
+import { analytics__trackPageView } from "../integration/googleanalytics.integration";
 
 function Contacts() {
   const CONTACTS_PAGE_ID = "contacts-page";
@@ -14,6 +15,13 @@ function Contacts() {
   const [isLanguageChanged, setIsLanguageChanged] = useState<boolean>(false);
 
   const { t } = useTranslation("pages/Contacts");
+
+  /**
+   * On contacts page load, track the page view with Google Analytics.
+   */
+  useEffect(() => {
+    analytics__trackPageView("/contacts", "Contacts");
+  }, []);
 
   return (
     <>

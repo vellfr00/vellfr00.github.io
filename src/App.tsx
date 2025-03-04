@@ -9,12 +9,20 @@ import './styles/common/font.css';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import Contacts from './pages/Contacts';
+import { analytics__initGoogleAnalytics } from './integration/googleanalytics.integration';
 
 function App() {
   const APP_SCROLL_OVERFLOW_CLASSNAME = 'scroll-overflow';
 
   const { i18n } = useTranslation();
   const location = useLocation();
+
+  /**
+   * On application load, initialize Google Analytics.
+   */
+  useEffect(() => {
+    analytics__initGoogleAnalytics();
+  }, []);
 
   /**
    * Update the HTML lang attribute to the current language dynamically.
