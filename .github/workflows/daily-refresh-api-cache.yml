@@ -1,8 +1,8 @@
-name: Daily Refresh API Cache
+name: Weekly Refresh API Cache
 
 on:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '0 0 * * 0'
 
 permissions:
   contents: write
